@@ -231,6 +231,39 @@
                     width: 480px;
                     padding: 24px;
                 }
+                .bubble-lang{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    align-items: normal;
+                    align-content: normal;
+                }
+                .bubble-lang-items:nth-child(1){
+                      display: block;
+                      flex-grow: 0;
+                      flex-shrink: 1;
+                      flex-basis: 50%;
+                      align-self: auto;
+                      order: 0;
+                }
+                .bubble-lang-items:nth-child(2){
+                      display: block;
+                      flex-grow: 0;
+                      flex-shrink: 1;
+                      flex-basis: 46%;
+                      align-self: auto;
+                      order: 0;
+                }
+
+                .bubble-lang-items:nth-child(3) {
+                  display: block;
+                  flex-grow: 0;
+                  flex-shrink: 1;
+                  flex-basis: 4%;
+                  align-self: auto;
+                  order: 0;
+                }
             }
             /* 
  * 1400의 3콜룸
@@ -410,6 +443,39 @@
 
                 th:first-child {
                     background: #000000;
+                }
+                .bubble-lang{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    align-items: normal;
+                    align-content: normal;
+                }
+                .bubble-lang-items:nth-child(1){
+                      display: block;
+                      flex-grow: 0;
+                      flex-shrink: 1;
+                      flex-basis: 66%;
+                      align-self: auto;
+                      order: 0;
+                }
+                .bubble-lang-items:nth-child(2){
+                      display: block;
+                      flex-grow: 0;
+                      flex-shrink: 1;
+                      flex-basis: 30%;
+                      align-self: auto;
+                      order: 0;
+                }
+
+                .bubble-lang-items:nth-child(3) {
+                  display: block;
+                  flex-grow: 0;
+                  flex-shrink: 1;
+                  flex-basis: 4%;
+                  align-self: auto;
+                  order: 0;
                 }
             }
 
@@ -722,7 +788,7 @@
             .lang-btn {
                 background-color: transparent;
                 border: none;
-                margin:6px 0px;
+                margin: 8px 0px;
                 padding: 12px 12px;
                 border-radius: 24px;
                 transition: background-color 0.3s ease-in-out;
@@ -735,39 +801,6 @@
             .lang-btn:hover {
                 background-color: rgba(0, 0, 0, 0.1);
             }
-            .bubble-lang{
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: nowrap;
-                    justify-content: space-between;
-                    align-items: normal;
-                    align-content: normal;
-                }
-                .bubble-lang-items:nth-child(1){
-                      display: block;
-                      flex-grow: 0;
-                      flex-shrink: 1;
-                      flex-basis: 50%;
-                      align-self: auto;
-                      order: 0;
-                }
-                .bubble-lang-items:nth-child(2){
-                      display: block;
-                      flex-grow: 0;
-                      flex-shrink: 1;
-                      flex-basis: 46%;
-                      align-self: auto;
-                      order: 0;
-                }
-
-                .bubble-lang-items:nth-child(3) {
-                  display: block;
-                  flex-grow: 0;
-                  flex-shrink: 1;
-                  flex-basis: 4%;
-                  align-self: auto;
-                  order: 0;
-                }
         </style>
     </head>
 
@@ -846,10 +879,10 @@
             <div
                 id="lang-dialog"
                 class="bubble"
-                style="background-color: #0072de; color: #fefefe;">
+                style="background-color: #0072de; color: #fefefe; padding-right: 12px;">
                 <div class="bubble-textbox bubble-lang" style="width=100%;">
                     <div class="bubble-lang-items">
-                        <h3 lang="en">Select your language</h3>
+                        <h3 lang="en">Choose your language</h3>
                         <h3 lang="ko" style="display: none">언어를 고르세요</h3>
                     </div>
                     <div class="bubble-lang-items" style="text-align: right">
@@ -857,7 +890,7 @@
                         <button class="lang-btn" id="lang-ko">한국어</button>
                     </div>
                     <div class="bubble-lang-items" style="text-align: right">
-                        <button class="lang-btn" id="lang-close" style="display: ;"><img src="icons/close.svg" width="18" height="18" /></button>
+                        <button class="lang-btn" id="lang-close"><img src="icons/close.svg" width="16" height="16" /></button>
                     </div>
                 </div>
             </div>
