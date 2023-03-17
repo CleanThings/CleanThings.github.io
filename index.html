@@ -264,6 +264,8 @@
                   align-self: auto;
                   order: 0;
                 }
+                
+                
             }
             /* 
  * 1400의 3콜룸
@@ -444,39 +446,7 @@
                 th:first-child {
                     background: #000000;
                 }
-                .bubble-lang{
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: nowrap;
-                    justify-content: space-between;
-                    align-items: normal;
-                    align-content: normal;
-                }
-                .bubble-lang-items:nth-child(1){
-                      display: block;
-                      flex-grow: 0;
-                      flex-shrink: 1;
-                      flex-basis: 66%;
-                      align-self: auto;
-                      order: 0;
-                }
-                .bubble-lang-items:nth-child(2){
-                      display: block;
-                      flex-grow: 0;
-                      flex-shrink: 1;
-                      flex-basis: 30%;
-                      align-self: auto;
-                      order: 0;
-                }
-
-                .bubble-lang-items:nth-child(3) {
-                  display: block;
-                  flex-grow: 0;
-                  flex-shrink: 1;
-                  flex-basis: 4%;
-                  align-self: auto;
-                  order: 0;
-                }
+                
             }
 
             /* Header styles */
@@ -879,18 +849,15 @@
             <div
                 id="lang-dialog"
                 class="bubble"
-                style="background-color: #0072de; color: #fefefe; padding-right: 12px;">
+                style="background-color: #0072de; color: #fefefe;">
                 <div class="bubble-textbox bubble-lang" style="width=100%;">
                     <div class="bubble-lang-items">
                         <h3 lang="en">Choose your language</h3>
                         <h3 lang="ko" style="display: none">언어를 고르세요</h3>
-                    </div>
-                    <div class="bubble-lang-items" style="text-align: right">
-                        <button class="lang-btn" id="lang-en">English</button>
-                        <button class="lang-btn" id="lang-ko">한국어</button>
-                    </div>
-                    <div class="bubble-lang-items" style="text-align: right">
-                        <button class="lang-btn" id="lang-close"><img src="icons/close.svg" width="16" height="16" /></button>
+                        </div>
+                    <div style="text-align:right;">
+                    <button class="lang-btn" id="lang-en">English</button>
+                    <button class="lang-btn" id="lang-ko">한국어</button>
                     </div>
                 </div>
             </div>
