@@ -1,1767 +1,2150 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CleanThings</title>
+        <style>
+            /* General styles */
+            * {
+                box-sizing: border-box;
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CleanThings</title>
-    <style>
-        /* General styles */
-        * {
-            box-sizing: border-box;
-        }
+            /*fonts used in oneui web*/
+            @font-face {
+                font-family: "SamsungSharpSans-Regular";
+                src: url("fonts/SamsungSharpSans-Regular.eot")
+                        format("embedded-opentype"),
+                    url("fonts/SamsungSharpSans-Regular.woff") format("woff"),
+                    url("fonts/SamsungSharpSans-Regular.ttf") format("truetype"),
+                    url("fonts/SamsungSharpSans-Regular.svg#SamsungSharpSans-Regular")
+                        format("svg");
+                font-weight: normal;
+                font-style: normal;
+                font-display: auto;
+            }
 
+            @font-face {
+                font-family: "SamsungSharpSans-Bold";
+                src: url("fonts/SamsungSharpSans-Bold.eot")
+                        format("embedded-opentype"),
+                    url("fonts/SamsungSharpSans-Bold.woff") format("woff"),
+                    url("fonts/SamsungSharpSans-Bold.ttf") format("truetype"),
+                    url("fonts/SamsungSharpSans-Bold.svg#SamsungSharpSans-Bold")
+                        format("svg");
+                font-weight: normal;
+                font-style: normal;
+                font-display: auto;
+            }
 
-        /*fonts used in oneui web*/
-        @font-face {
-            font-family: 'SamsungSharpSans-Regular';
-            src: url('fonts/SamsungSharpSans-Regular.eot') format('embedded-opentype'), url('fonts/SamsungSharpSans-Regular.woff') format('woff'), url('fonts/SamsungSharpSans-Regular.ttf') format('truetype'), url('fonts/SamsungSharpSans-Regular.svg#SamsungSharpSans-Regular') format('svg');
-            font-weight: normal;
-            font-style: normal;
-            font-display: auto;
-        }
+            @font-face {
+                font-family: "SamsungOne-Regular";
+                src: url("fonts/samsungone-300-webfont.woff") format("woff");
+                font-weight: 300;
+                font-style: normal;
+                font-display: auto;
+            }
 
-        @font-face {
-            font-family: 'SamsungSharpSans-Bold';
-            src: url('fonts/SamsungSharpSans-Bold.eot') format('embedded-opentype'), url('fonts/SamsungSharpSans-Bold.woff') format('woff'), url('fonts/SamsungSharpSans-Bold.ttf') format('truetype'), url('fonts/SamsungSharpSans-Bold.svg#SamsungSharpSans-Bold') format('svg');
-            font-weight: normal;
-            font-style: normal;
-            font-display: auto;
-        }
+            @font-face {
+                font-family: "SamsungOne-Regular";
+                src: url("fonts/samsungone-600-webfont.woff") format("woff");
+                font-weight: 600;
+                font-style: normal;
+                font-display: auto;
+            }
 
-        @font-face {
-            font-family: 'SamsungOne-Regular';
-            src: url('fonts/samsungone-300-webfont.woff') format('woff');
-            font-weight: 300;
-            font-style: normal;
-            font-display: auto;
-        }
+            @font-face {
+                font-family: "SamsungOne-Regular";
+                src: url("fonts/samsungone-700-webfont.woff") format("woff");
+                font-weight: 700;
+                font-style: normal;
+                font-display: auto;
+            }
 
-        @font-face {
-            font-family: 'SamsungOne-Regular';
-            src: url('fonts/samsungone-600-webfont.woff') format('woff');
-            font-weight: 600;
-            font-style: normal;
-            font-display: auto;
-        }
+            @font-face {
+                font-family: "SamsungOne-Regular";
+                src: url("fonts/samsungone-800-webfont.woff") format("woff");
+                font-weight: 800;
+                font-style: normal;
+                font-display: auto;
+            }
+            /*fonts used in Korean*/
+            @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;900&display=swap");
 
-        @font-face {
-            font-family: 'SamsungOne-Regular';
-            src: url('fonts/samsungone-700-webfont.woff') format('woff');
-            font-weight: 700;
-            font-style: normal;
-            font-display: auto;
-        }
-
-        @font-face {
-            font-family: 'SamsungOne-Regular';
-            src: url('fonts/samsungone-800-webfont.woff') format('woff');
-            font-weight: 800;
-            font-style: normal;
-            font-display: auto;
-        }
-        /*fonts used in Korean*/
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;900&display=swap');
-        
-        body {
-            font-family: 'SamsungOne-bold', 'SamsungOneKorean-bold', 'Noto Sans KR', sans-serif;
-            font-weight: 400;
-            font-size: 1em;
-            margin: 0;
-            padding:0px 24px;
-            background-color: #f2f2f2;
-            color: #363636;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'SamsungSharpSans-Bold', 'SamsungOne-bold', 'SamsungOneKorean-bold', 'Noto Sans KR', sans-serif;
-            padding: 12px 0;
-            margin: 0;
-            line-height: 2.25rem;
-        }
-
-        h1 {
-            font-size: 1.875rem;
-        }
-
-        p {
-            padding: 12px 0px;
-            line-height: 1.25rem;
-            font-size: 1.1em;
-        }
-
-        a {
-            text-decoration: none;
-            color: #363636;
-        }
-
-        .title {
-            display: inline-block;
-            margin: 0 auto;
-
-        }
-
-        viewing-area {
-            scroll-snap-align: start;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            height: 40%;
-            padding: 4em;
-        }
-
-        .container {
-            display: flex;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .GNB {
-            padding: 4px;
-        }
-
-        /* Set padding on all sides when screen is wider than 600px */
-        @media (min-width: 712px) {
             body {
-                width: 1440px;
+                font-family: "SamsungOne-bold", "SamsungOneKorean-bold",
+                    "Noto Sans KR", sans-serif;
+                font-weight: 400;
+                font-size: 1em;
+                margin: 0;
+                padding: 0px 24px;
+                background-color: #f2f2f2;
+                color: #363636;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-family: "SamsungSharpSans-Bold", "SamsungOne-bold",
+                    "SamsungOneKorean-bold", "Noto Sans KR", sans-serif;
+                padding: 12px 0;
+                margin: 0;
+                line-height: 2.25rem;
+            }
+
+            h1 {
+                font-size: 1.875rem;
+            }
+
+            p {
+                padding: 12px 0px;
+                line-height: 1.25rem;
+                font-size: 1.1em;
+            }
+
+            a {
+                text-decoration: none;
+                color: #363636;
+            }
+
+            .title {
+                display: inline-block;
                 margin: 0 auto;
             }
 
-            .bubble {
-                margin: 24px 0px;
-                padding: 12px 24px;
-                border-radius: 24px;
-                background-color: #fefefe;
-            }
-            .nobubble {
-                margin: 24px 0px;
-                padding: 12px 24px;
-            }
-            .landing {
-                background-image: url('images/landing-home.jpg');
-                background-size: cover;
-            }
-            .landing-clean {
-                background-image: url('images/landing-clean.jpg');
-                background-size: cover;
-            }
-            .landing-specious {
-                background-image: url('images/landing-specious.jpg');
-                background-size: cover;
-            }
-            .landing-infected {
-                background-image: url('images/landing-infected.jpg');
-                background-size: cover;
-            }
-            .bubble-clean {
-                background-image: url('images/bubble-clean.jpg');
-                background-size: cover;
-                width:448px;
-            }
-            .bubble-specious {
-                background-image: url('images/bubble-specious.jpg');
-                background-size: cover;
-                width:448px;
-            }
-            .bubble-infected {
-                background-image: url('images/bubble-infected.jpg');
-                background-size: cover;
-                width:448px;
-            }
-           .responsive-bubble{
+            viewing-area {
+                scroll-snap-align: start;
                 display: flex;
-                justify-content: space-evenly;
-                align-items: center;       
-            }
-           .responsive-bubble-singleline{
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;       
-            }
-           .bubble-clean{
-               margin-right:12px;
-            }
-           .bubble-specious{
-               margin: 0px 12px;
-           }
-            .bubble-infected{
-              margin-left:12px;
-
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                height: 40%;
+                padding: 4em;
             }
 
-            #bubble-textbox-2column-left{
-                width:684px;
-                margin-right:12px;
+            .container {
+                display: flex;
+                margin: 0 auto;
+                padding: 0 24px;
             }
-            #bubble-textbox-2column-right{
-                width:684px;
-                margin-left:12px;
+
+            .GNB {
+                padding: 4px;
             }
-            #leaf{
-                position:absolute; 
-                z-index: -1; 
-                top:198px; 
-                right:-240px;
-                opacity: 0.5;
+
+            /* Set padding on all sides when screen is wider than 600px */
+            @media (min-width: 712px) {
+                body {
+                    width: 1440px;
+                    margin: 0 auto;
+                }
+
+                .bubble {
+                    margin: 24px 0px;
+                    padding: 12px 24px;
+                    border-radius: 24px;
+                    background-color: #fefefe;
+                }
+                .nobubble {
+                    margin: 24px 0px;
+                    padding: 12px 24px;
+                }
+                .landing {
+                    background-image: url("images/landing-home.jpg");
+                    background-size: cover;
+                }
+                .landing-clean {
+                    background-image: url("images/landing-clean.jpg");
+                    background-size: cover;
+                }
+                .landing-specious {
+                    background-image: url("images/landing-specious.jpg");
+                    background-size: cover;
+                }
+                .landing-infected {
+                    background-image: url("images/landing-infected.jpg");
+                    background-size: cover;
+                }
+                .bubble-clean {
+                    background-image: url("images/bubble-clean.jpg");
+                    background-size: cover;
+                    width: 448px;
+                }
+                .bubble-specious {
+                    background-image: url("images/bubble-specious.jpg");
+                    background-size: cover;
+                    width: 448px;
+                }
+                .bubble-infected {
+                    background-image: url("images/bubble-infected.jpg");
+                    background-size: cover;
+                    width: 448px;
+                }
+                .responsive-bubble {
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                }
+                .responsive-bubble-singleline {
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                }
+                .bubble-clean {
+                    margin-right: 12px;
+                }
+                .bubble-specious {
+                    margin: 0px 12px;
+                }
+                .bubble-infected {
+                    margin-left: 12px;
+                }
+
+                #bubble-textbox-2column-left {
+                    width: 684px;
+                    margin-right: 12px;
+                }
+                #bubble-textbox-2column-right {
+                    width: 684px;
+                    margin-left: 12px;
+                }
+                #leaf {
+                    position: absolute;
+                    z-index: -1;
+                    top: 198px;
+                    right: -240px;
+                    opacity: 0.5;
+                }
+                #water {
+                    position: absolute;
+                    z-index: -2;
+                    top: 736px;
+                    left: -240px;
+                    opacity: 0.5;
+                    width: 720px;
+                }
+                #certified {
+                    width: 480px;
+                    padding: 24px;
+                }
             }
-            #water{
-                position:absolute; 
-                z-index: -2; 
-                top:736px; 
-                left:-240px;
-                opacity: 0.5;
-                width:720px;
-            }
-            #certified{
-                width:480px;
-                padding:24px;
-            }
-        }
-/* 
+            /* 
  * 1400의 3콜룸
 
 1400 - 48 - 24+24 = 1344
 -> 1컬럼당 448
         */
-        nav {
-            display: flex;
-            margin: 6px;
-            align-items: center;
-            justify-content: space-between;
-
-        }
-
-        nav.sticky {
-            z-index: 2;
-
-        }
-
-        nav ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        nav li {
-            display: inline-block;
-            margin-right: 24px;
-        }
-
-        nav a {
-            color: #363636;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .menu {
-            display: flex;
-            align-items: center;
-            padding-right: 12px;
-        }
-
-        .dropbtn {
-            border: none;
-            cursor: pointer;
-            background-color: #f2f2f2;
-            margin:0px 12px;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            z-index: 2;
-            background-color: #fefefe;
-            top: 24px;
-            right: 0;
-            left: auto;
-            overflow-y: auto;
-            width: 200px;
-            border-radius: 24px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, .3);
-            padding: 0px 0px;
-            opacity: 0;
-            transition: width 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out;
-
-        }
-
-        .dropdown-content a {
-            display: inline-flex;
-            position: relative;
-            padding: 18px 24px;
-            text-decoration: none;
-            color: #363636;
-        }
-
-        .dropdown-content a:hover {
-            padding: 12 24px;
-            width: 100%;
-            background-color: #e2e2e2;
-            content: "";
-            opacity: 0.5;
-            transition: width 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out;
-        }
-
-        .dropdown-content a:hover::after {
-            width: 200%;
-            height: 200%;
-            opacity: 1;
-        }
-
-        .menu:hover .dropdown-content {
-            display: block;
-            opacity: 1;
-        }
-
-        /* Set padding and font size for smaller screens */
-        @media (max-width: 712px) {
-            body {
-                padding: 0 0%;
-                font-size: 14px;
-            }
-
             nav {
-                flex-direction: row;
+                display: flex;
+                margin: 6px;
                 align-items: center;
-                justify-content: flex-end;
-                width: auto;
-                background-color: transparent;
+                justify-content: space-between;
             }
 
-            .bubble {
+            nav.sticky {
+                z-index: 2;
+            }
+
+            nav ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            nav li {
+                display: inline-block;
+                margin-right: 24px;
+            }
+
+            nav a {
+                color: #363636;
+                font-weight: bold;
+                font-size: 16px;
+            }
+
+            .menu {
+                display: flex;
+                align-items: center;
+                padding-right: 12px;
+            }
+
+            .dropbtn {
+                border: none;
+                cursor: pointer;
+                background-color: #f2f2f2;
+                margin: 0px 12px;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                z-index: 2;
+                background-color: #fefefe;
+                top: 24px;
+                right: 0;
+                left: auto;
+                overflow-y: auto;
+                width: 200px;
+                border-radius: 24px;
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+                padding: 0px 0px;
+                opacity: 0;
+                transition: width 0.3s ease-out, height 0.3s ease-out,
+                    opacity 0.3s ease-out;
+            }
+
+            .dropdown-content a {
+                display: inline-flex;
+                position: relative;
+                padding: 18px 24px;
+                text-decoration: none;
+                color: #363636;
+            }
+
+            .dropdown-content a:hover {
+                padding: 12 24px;
+                width: 100%;
+                background-color: #e2e2e2;
+                content: "";
+                opacity: 0.5;
+                transition: width 0.3s ease-out, height 0.3s ease-out,
+                    opacity 0.3s ease-out;
+            }
+
+            .dropdown-content a:hover::after {
+                width: 200%;
+                height: 200%;
+                opacity: 1;
+            }
+
+            .menu:hover .dropdown-content {
+                display: block;
+                opacity: 1;
+            }
+
+            /* Set padding and font size for smaller screens */
+            @media (max-width: 712px) {
+                body {
+                    padding: 0 0%;
+                    font-size: 14px;
+                }
+
+                nav {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-end;
+                    width: auto;
+                    background-color: transparent;
+                }
+
+                .bubble {
+                    margin: 24px 0px;
+                    padding: 12px 24px;
+                    border-radius: 24px;
+                    background-color: #fefefe;
+                }
+
+                .nobubble {
+                    margin: 24px 0px;
+                    padding: 12px 24px;
+                }
+
+                .landing {
+                    background-image: url("images/landing-home_mobile.jpg");
+                    background-size: cover;
+                }
+                .landing-clean {
+                    background-image: url("images/landing-clean_mobile.jpg");
+                    background-size: cover;
+                }
+                .landing-specious {
+                    background-image: url("images/landing-specious_mobile.jpg");
+                    background-size: cover;
+                }
+                .landing-infected {
+                    background-image: url("images/landing-infected_mobile.jpg");
+                    background-size: cover;
+                }
+                .bubble-clean {
+                    background-image: url("images/bubble-clean.jpg");
+                    background-size: cover;
+                }
+                .bubble-specious {
+                    background-image: url("images/bubble-specious.jpg");
+                    background-size: cover;
+                }
+                .bubble-infected {
+                    background-image: url("images/bubble-infected.jpg");
+                    background-size: cover;
+                }
+                .responsive-bubble {
+                    display: block;
+                    justify-content: space-evenly;
+                    align-items: center;
+                }
+                .responsive-bubble-singleline {
+                    display: block;
+                    justify-content: space-evenly;
+                    align-items: center;
+                }
+                #bubble-textbox-2column-left {
+                    margin-right: 0px;
+                }
+                #bubble-textbox-2column-right {
+                    margin-left: 0px;
+                }
+                #leaf {
+                    display: none;
+                }
+                #water {
+                    display: none;
+                }
+                #certified {
+                    margin: 36px 0px;
+                }
+
+                th:first-child {
+                    background: #000000;
+                }
+            }
+
+            /* Header styles */
+            header {
+                background-color: #f2f2f2;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+            }
+
+            .logo {
+                display: inline-flex;
+                margin: 0 6px;
+            }
+
+            .textlogo {
+                font-family: "SamsungSharpSans-Bold", "SamsungOne-bold",
+                    "SamsungOneKorean-bold", sans-serif;
+            }
+
+            main {
+                margin-top: 80px;
+            }
+
+            /* Landing page styles */
+            .landing,
+            .landing-clean,
+            .landing-specious,
+            .landing-infected {
+                height: 30em;
+                align-items: center;
+                justify-content: center;
+                color: #fefefe;
+                text-align: center;
+                font-family: "SamsungOne-Regular", "SamsungOneKorean-Regular",
+                    sans-serif;
                 margin: 24px 0px;
                 padding: 12px 24px;
                 border-radius: 24px;
-                background-color: #fefefe;
             }
 
-            .nobubble {
-                margin: 24px 0px;
-                padding: 12px 24px;
+            .landing h1,
+            .landing-clean h1,
+            .landing-specious h1,
+            .landing-infected h1 {
+                font-size: 48px;
+                margin-bottom: 24px;
             }
 
-            .landing {
-                background-image: url('images/landing-home_mobile.jpg');
-                background-size: cover;
+            .landing p,
+            .landing-clean p,
+            .landing-specious p,
+            .landing-infected p {
+                font-size: 24px;
+                line-height: 2.25rem;
             }
-            .landing-clean {
-                background-image: url('images/landing-clean_mobile.jpg');
-                background-size: cover;
-            }
-            .landing-specious {
-                background-image: url('images/landing-specious_mobile.jpg');
-                background-size: cover;
-            }
-            .landing-infected {
-                background-image: url('images/landing-infected_mobile.jpg');
-                background-size: cover;
-            }
+            .bubble-specious,
+            .bubble-infected,
             .bubble-clean {
-                background-image: url('images/bubble-clean.jpg');
-                background-size: cover;
-                
+                height: 15em;
             }
-            .bubble-specious {
-                background-image: url('images/bubble-specious.jpg');
-                background-size: cover;
+            /* Table styles */
+            .table {
+                margin: auto;
+                width: 100%;
+                border-collapse: collapse;
+                word-break: break-all;
+                table-layout: fixed;
+                color: #363636;
+                overflow: hidden;
             }
-            .bubble-infected {
-                background-image: url('images/bubble-infected.jpg');
-                background-size: cover;
+
+            .table thead:first-child {
+                width: 100%;
+                color: #363636;
             }
-            .responsive-bubble{
+
+            .table tr {
+                border-top: 1px solid #e2e2e2;
+                border-bottom: 1px solid #e2e2e2;
+            }
+
+            /*.table tr:nth-child(odd):not(:first-child) {*/
+            /*    background-color: #ebf3f9;*/
+            /*}*/
+
+            .table th {
+                display: none;
+            }
+
+            .table td:first-child {
+                border-bottom: 1px solid #e2e2e2;
+                font-weight: bold;
+            }
+
+            .table td {
                 display: block;
-                justify-content: space-evenly;
-                align-items: center;      
+                background-color: #f2f2f2;
             }
-            .responsive-bubble-singleline{
-                display: block;
+
+            .table thead:first-child {
+                margin-top: 24px;
+            }
+
+            .table td:last-child {
+                margin-bottom: 48px;
+            }
+
+            .table th,
+            .table td {
+                text-align: left;
+            }
+
+            .table tr {
+                border-color: #e2e2e2;
+            }
+
+            .table th,
+            .table td {
+                padding: 12px 6px;
+            }
+
+            @media screen and (min-width: 720px) {
+                .table td:before {
+                    display: none;
+                }
+                .table td a {
+                    text-decoration: none;
+                }
+                .table th,
+                .table td {
+                    display: table-cell;
+                    padding: 12px;
+                }
+            }
+            /* Style the footer */
+            footer {
+                padding: 12px;
+                color: #363636;
+                text-align: center;
+            }
+
+            footer p {
+                margin: 0;
+            }
+
+            small {
+                color: #f2f2f2;
+                font-size: 1em;
+                line-height: 0px;
+            }
+
+            .tab {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: #f2f2f2;
+                display: flex;
                 justify-content: space-evenly;
                 align-items: center;
+                padding: 8px 0;
             }
-            #bubble-textbox-2column-left{
-                margin-right:0px;
+
+            .tab button {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-decoration: none;
+                color: #585858;
+                font-size: 12px;
+                border-radius: 12px;
+                padding: 4px 24px;
             }
-            #bubble-textbox-2column-right{
-                margin-left:0px;
+
+            .menu-text {
+                margin-top: 6px;
             }
-            #leaf{
-                display:none;
+
+            .menu-text > strong {
+                font-family: "SamsungOne-bold", "SamsungOneKorean-bold",
+                    sans-serif;
+                font-weight: 1200;
+                color: #363636;
             }
-            #water{
-                display:none;
+
+            #warning {
+                color: #ee1c25;
             }
-            #certified{
-                margin:36px 0px;
+
+            /* 탭 */
+            /* Hide all tab content by default */
+            /* Hide all tab content by default */
+            .tabcontent {
+                display: none;
+                opacity: 0;
+                transition: opacity 1s ease;
             }
-            
-            th:first-child {
-                background:#000000;
+
+            /* Show active tab content */
+            .tabcontent.active {
+                display: block;
+                opacity: 1;
             }
-        }
 
-        /* Header styles */
-        header {
-            background-color: #f2f2f2;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-        }
+            .tabbutton {
+                position: relative;
+                overflow: hidden;
+                border: 0px solid red;
+                border-radius: 12px;
+                color: #585858;
+                background-color: #f2f2f2;
+            }
 
-        .logo {
-            display: inline-flex;
-            margin: 0 6px;
-        }
+            .tabbutton::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                background-color: rgba(159, 159, 159, 0.3);
+                border-radius: 50%;
+                opacity: 0;
+                transform: translate(-50%, -50%);
+                transition: width 0.3s ease-out, height 0.3s ease-out,
+                    opacity 0.3s ease-out;
+            }
 
-        .textlogo {
-            font-family: 'SamsungSharpSans-Bold', 'SamsungOne-bold', 'SamsungOneKorean-bold', sans-serif;
-        }
+            .tabbutton:hover::after {
+                width: 200%;
+                height: 200%;
+                opacity: 1;
+            }
 
-        main {
-            margin-top: 80px;
-        }
+            .tabbutton.active {
+                font-weight: 700;
+                color: #363636;
+            }
 
-        /* Landing page styles */
-        .landing,
-        .landing-clean,
-        .landing-specious,
-        .landing-infected{
-            height: 30em;
-            align-items: center;
-            justify-content: center;
-            color: #fefefe;
-            text-align: center;
-            font-family: 'SamsungOne-Regular', 'SamsungOneKorean-Regular', sans-serif;
-            margin: 24px 0px;
-            padding: 12px 24px;
-            border-radius: 24px;
-        }
+            /* popup content */
+            .overlay {
+                z-index: 200;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                /* black with 50% opacity */
+                display: none;
+                justify-content: center;
+                align-items: center;
+            }
 
-        .landing h1,
-        .landing-clean h1,
-        .landing-specious h1,
-        .landing-infected h1{
-            font-size: 48px;
-            margin-bottom: 24px;
-        }
-
-        .landing p,
-        .landing-clean p,
-        .landing-specious p,
-        .landing-infected p{
-            font-size: 24px;
-            line-height: 2.25rem;
-        }
-        .bubble-specious,
-        .bubble-infected,
-        .bubble-clean{
-            height: 15em;
-        }
-        /* Table styles */
-.table {
-    margin: auto;
-    width: 100%;
-    border-collapse: collapse;
-    word-break:break-all;
-    table-layout:fixed;
-    color: #363636;
-    overflow: hidden;
-    
-}
-
-.table thead:first-child {
-    width: 100%;
-    color: #363636;
-}
-
-.table tr {
-    border-top: 1px solid #e2e2e2;
-    border-bottom: 1px solid #e2e2e2;
-}
-
-/*.table tr:nth-child(odd):not(:first-child) {*/
-/*    background-color: #ebf3f9;*/
-/*}*/
-
-.table th {
-    display: none;
-}
-
-.table td:first-child {
-    border-bottom: 1px solid #e2e2e2;
-    font-weight: bold;
-}
-
-.table td {
-    display: block;
-    background-color: #f2f2f2;
-}
-
-.table thead:first-child {
-    margin-top: 24px;
-}
-
-.table td:last-child {
-    margin-bottom: 48px;
-}
-
-.table th,
-.table td {
-    text-align: left;
-}
-
-.table tr {
-    border-color: #e2e2e2;
-}
-
-.table th,
-.table td {
-    padding: 12px 6px;
-}
-        
-@media screen and (min-width: 720px) {
-    .table td:before {
-        display: none;
-    }
-    .table td a {
-        text-decoration: none;
-    }
-    .table th,
-    .table td {
-        display: table-cell;
-        padding: 12px;
-    }
-}
-        /* Style the footer */
-        footer {
-            padding: 12px;
-            color: #363636;
-            text-align: center;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        small {
-            color: #f2f2f2;
-            font-size: 1em;
-            line-height: 0px;
-        }
-
-        .tab {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #f2f2f2;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            padding: 8px 0;
-        }
-
-        .tab button {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #585858;
-            font-size: 12px;
-            border-radius: 12px;
-            padding: 4px 24px;
-        }
-
-        .menu-text {
-            margin-top: 6px;
-        }
-
-        .menu-text>strong {
-            font-family: 'SamsungOne-bold', 'SamsungOneKorean-bold', sans-serif;
-            font-weight: 1200;
-            color: #363636;
-        }
-
-        #warning {
-            color: #EE1C25;
-        }
-
-        /* 탭 */
-        /* Hide all tab content by default */
-        /* Hide all tab content by default */
-        .tabcontent {
-            display: none;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        /* Show active tab content */
-        .tabcontent.active {
-            display: block;
-            opacity: 1;
-
-        }
-
-        .tabbutton {
-            position: relative;
-            overflow: hidden;
-            border: 0px solid red;
-            border-radius: 12px;
-            color: #585858;
-            background-color:#f2f2f2;
-
-        }
-
-        .tabbutton::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background-color: rgba(159, 159, 159, 0.3);
-            border-radius: 50%;
-            opacity: 0;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out;
-        }
-
-        .tabbutton:hover::after {
-            width: 200%;
-            height: 200%;
-            opacity: 1;
-        }
-
-        .tabbutton.active {
-            font-weight: 700;
-            color: #363636;
-        }
-
-        /* popup content */
-        .overlay {
-            z-index: 200;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            /* black with 50% opacity */
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .popup {
-            background-color: #fefefe;
-            border-radius: 24px;
-            max-width: 684px;
-            min-width: 50%;
-            overflow-y: auto;
-            padding: 12px 24px;
-            bottom: 24px;
-            font-family: 'SamsungOne-Regular', 'SamsungOneKorean-Regular', sans-serif;
-            font-weight: 500;
-            box-shadow: 0 0 30px rgba(0, 0, 0, .3);
-            position: fixed;
-        }
-        .popup-body{
-                    
-            -ms-overflow-style: none; /* IE and Edge */
-            scrollbar-width: none; /* Firefox */
-        }
-        .popup-body::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera*/
-        }
-        .popup-body>p {
-            padding: 2px;
-        }
-        .minnie{
-            padding:6px; border-radius: 24px; font-family: 'SamsungSharpSans-Bold', 'SamsungOne-bold', 'SamsungOneKorean-bold', sans-serif;
-            background-color: #f2f2f2; color:#000000;
-            transition: background-color 0.3s ease-in-out;
-        }
-        .minnie:hover{
-    background-color: #dcdcdc;
-        }
-        .close-btn {
-            background-color: transparent;
-            border: none;
-            margin: 12px;
-            width:50%;
-            padding: 12px 24px;
-            background-color: #f2f2f2;
-            border-radius: 24px;
+            .popup {
+                background-color: #fefefe;
+                border-radius: 24px;
+                max-width: 684px;
+                min-width: 50%;
+                overflow-y: auto;
+                padding: 12px 24px;
+                bottom: 24px;
+                font-family: "SamsungOne-Regular", "SamsungOneKorean-Regular",
+                    sans-serif;
+                font-weight: 500;
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+                position: fixed;
+            }
+            .popup-body {
+                -ms-overflow-style: none; /* IE and Edge */
+                scrollbar-width: none; /* Firefox */
+            }
+            .popup-body::-webkit-scrollbar {
+                display: none; /* Chrome, Safari, Opera*/
+            }
+            .popup-body > p {
+                padding: 2px;
+            }
+            .minnie {
+                padding: 6px;
+                border-radius: 24px;
+                font-family: "SamsungSharpSans-Bold", "SamsungOne-bold",
+                    "SamsungOneKorean-bold", sans-serif;
+                background-color: #f2f2f2;
+                color: #000000;
                 transition: background-color 0.3s ease-in-out;
-    text-align: center;
-        }
-        .close-btn:hover {
-    background-color: #dcdcdc;
-}
-    </style>
-</head>
-
-<body id="content">
-    <header>
-        <nav class="GNB">
-            <button class="tabbutton active" data-tab="home">
-                <div class="logo">
-                    <img src="icons/Clean_Things_logo.svg" width="44" height="44" alt="Logo">
-                </div>
-            </button>
-            <div class="title">
-                <div class="container">
-                    <h1>CleanThings</h1>
-                </div>
-            </div>
-            <div class="menu">
-                <button class="dropbtn">
-                    <img src="icons/vertical_ellipsis.svg" alt="Menu Icon">
-                </button>
-                <div class="dropdown-content">
-                    <a href="https://github.com/DoTheSmartThings/CleanThings" target="_blank" rel="noreferrer noopener">GitHub</a>
-                    <a href="#" class="popup-link" data-popup-target="#contribute-popup"><span lang="en">How to contribute</span><span lang="ko" style="display:none;">어떻게 수정하나요</span></a>
-                    <a href="#" class="popup-link" data-popup-target="#badge-popup"><span lang="en">Types of badge</span><span lang="ko" style="display:none;">배지 리스트</span></a>
-                    <a href="#" class="popup-link" data-popup-target="#special-thanks-popup"><span lang="en">Special Thanks</span><span lang="ko" style="display:none;">고마운 분</span></a>
-                    <a href="#" class="popup-link" data-popup-target="#contact-popup"><span lang="en">This is not fair<br>(Contact)</span><span lang="ko" style="display:none;">중국 제조사는 여기서 문의하세요</span></a>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <main>
-            <div id="lang-dialog" class="bubble responsive-bubble-singleline" style="background-color: #0072de; color: #fefefe;">
-                <div class="bubble-textbox" id="bubble-textbox-2column-left">
-                  <h3 lang="en">Select your language</h3>
-                  <h3 lang="ko" style="display:none;">언어를 고르세요</h3>
-                </div>
-                <div class="bubble-textbox" id="bubble-textbox-2column-right" style="text-align: right">
-                  <button id="lang-en">English</button>
-                  <button id="lang-ko">한국어</button>
-                  <button id="lang-close">X</button>
-                </div>
-            </div>
-        <section id="home" class="tabcontent active">
-        <section class="landing">
-            <p lang="en">Find IoT devices and sensors that free from any Chinese backdoor or hacking threats.</p>
-            <p lang="ko" style="display:none;">중국의 백도어나 해킹 위협으로부터 자유로운 IoT 기기와 센서만 찾으세요.</p>
-        </section>
-            <section class="nobubble landing-home-001">
-                <div class="responsive-bubble">
-            <div class="bubble-textbox" id="bubble-textbox-2column-left">
-                <h1 lang="en">There is no place like home</h1>
-                <h1 lang="ko" style="display:none;">집보다 나은 곳은 없습니다</h1>
-            </div><div class="bubble-textbox" id="bubble-textbox-2column-right"><img src="images/leaf_and_phone.svg" height="684" id="leaf">
-                    <img src="images/water.svg" id="water">
-                    <p lang="en" style="background-color:rgb(242, 242, 242, 0.8); border-radius:12px;">So keep save your home from Chinese threats. Don't let Chinese government and hacker steal your information from your  devices<br><br>Do left only the <span class="textlogo">CleanThings</span> in your smart home</p>
-                    <p lang="ko" style="background-color:rgb(242, 242, 242, 0.8); border-radius:12px; display:none;">그러니 중국의 위협으로부터 집을 지키세요. <br>중국 정부와 해커가 여러분의 IoT 기기에서 개인정보를 훔치지 못하게 하세요.<br><br>스마트홈에 깨끗한 <span class="textlogo">CleanThings</span>만 남기세요.</p>
-                    </div></div>
-            </section>
-            <section class="bubble">
-                <div class="responsive-bubble">
-                    <div class="bubble-textbox" id="bubble-textbox-2column-left" style="display: block; text-align: center;">
-                    <img src="images/certified.svg" height="auto" id="certified">
-                    </div>
-                <div class="bubble-textbox" id="bubble-textbox-2column-right">
-                <h1 lang="en">What are we do is</h1>
-                <h1 lang="ko" style="display:none;">우리가 하는 것은</h1>
-                <p lang="en">Certifying IoT products that have been free from any Chinese backdoor or hacking threats. And, also naming and shaming IoT products and companies which steal users data to deliver it to the Chinese government and Chinese Communist Party.</p>
-                <p lang="en">The way you can be a part of us to achieve our goal is very simple</p>
-                    <p lang="ko" style="display:none;">중국 백도어나 해킹위협으로부터 자유로운 IoT 제품을 인증합니다. 또 사용자 데이터를 훔쳐 중국 정부와 중국 공산당에 전달하는 IoT 제품 및 업체의 이름을 걸어 수치스러움을 주고 있습니다.</p>
-                    <p lang="ko" style="display:none;">여러분이 한 마음이 되어 이 목표를 이루는 방법은 매우 쉽습니다</p>
-                    </div></div>
-            </section>
-            <div class="responsive-bubble">
-               
-                <section class="bubble bubble-clean tabbutton" style="color:#f0f0f0; border-radius: 24px;" data-tab="clean-things">
-                <h1 lang="en">Shout out<br>CleanThings</h1>
-                <h1 lang="ko" style="display:none;">CleanThings을<br>고르세요</h1>
-                    <img src="images/Clean_Things_badge(white).svg" height="64" alt="badge" style="position: absolute; bottom:24px;">
-                    </section>
-                <section class="bubble bubble-specious tabbutton" style="color:#f0f0f0; border-radius: 24px;" data-tab="specious-things">
-                <h1 lang="en">Watch out<br>SpeciousThings</h1>
-                <h1 lang="ko" style="display:none;">SpeciousThings을<br>조심히 고민하세요</h1>
-                    <img src="images/Specious_Things_badge(white).svg" height="64" alt="badge" style="position: absolute; bottom:24px;">
-                </section>
-                <section class="bubble bubble-infected tabbutton" style="color:#f0f0f0; border-radius: 24px;" data-tab="infected-things">
-                <h1 lang="en">Throw out<br>InfectedThings</h1>
-                                    <h1 lang="ko" style="display:none;">InfectedThings을<br>버리세요</h1>
-                    <img src="images/Infected_Things_badge(white).svg" height="64" alt="badge" style="position: absolute; bottom:24px;">
-                </section>
-            </div>
-            <section>
-            </section>
-        </section>
-        <section id="clean-things" class="tabcontent">
-        <section class="landing-clean">
-            <p lang="en">No Chinese Backdoor detected</p>
-            <p lang="ko" style="display:none;">중국의 백도어가 하나도 없습니다</p>
-        </section>
-            
-            <section class="nobubble">
-                <div class="responsive-bubble">
-                    <div class="bubble-textbox" id="bubble-textbox-2column-left">
-                                    <h1>CleanThings</h1>
-                <p lang="en"><span class="textlogo">CleanThings</span> includes IoT products that have been certified free from any Chinese backdoor or hacking threats.</p>
-                <p lang="ko" style="display:none;"><span class="textlogo">CleanThings</span>는 중국 백도어나 해킹 위협으로부터 자유로운 것으로 인증된 IoT 제품이 있습니다.</p>
-                <p lang="en">It have been manufactured outside of China, and do not use any Chinese servers. You can be assured that your smart home is safe from Chinese backdoor threats by using <span class="textlogo">CleanThings</span></p>
-                <p lang="ko" style="display:none;">중국이 아닌 곳에서 만들어졌으며 중국 서버를 거치지 않습니다. <span class="textlogo">CleanThings</span>로 지어진 스마트홈은 중국 백도어 위협으로부터 안전하고 자유롭습니다.</p>
-                <p lang="en">Here is lists of the <span class="textlogo">CleanThings</span></p>
-                <p lang="ko" style="display:none;"><span class="textlogo">CleanThings</span>의 리스트는 다음과 같습니다.</p>
-                    </div>
-                <div class="bubble-textbox" id="bubble-textbox-2column-right" style="display: block; text-align: center;">
-                    <img src="images/Clean_Things_badge(white).svg" height="64" alt="badge" style="margin:6px;"><img src="images/Clean_Things_badge(black).svg" height="64" alt="badge" style="margin:6px;">
-                    </div>
-
-                </div>
-            </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Aeotec</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Britzy</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>dacor</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>FIBARO</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Easyroll</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>ecobee</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>EnerZipper</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>eZEX</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>IKEA</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>KeyWe</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Nanoleaf</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Nest</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Philips</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Ring</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Samsung</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>SiHAS</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>SmartThings</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>SoluM</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Somfy</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Sonoff</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>SwitchBot</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Power Manager</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-                        <tr >
-                          <td>ZigBee Smart plug 16A SmartThings</td>
-                          <td>Smart plug</td>
-                            <td>Zigbee (Local)</td>
-                            <td>South Korea</td>
-                            <td>03/16/2023</td>
-
-                        </tr>
-                        <tr >
-                          <td>Z-Wave Smart plug 16A SmartThings</td>
-                          <td>Smart plug</td>
-                            <td>Z-Wave (Local)</td>
-                            <td>South Korea</td>
-                            <td>03/16/2023</td>
-
-                        </tr>
-                                  <tr>
-                          <td>ZigBee outlet SmartThings</td>
-                          <td>Outlet</td>
-                            <td>Zigbee (Local)</td>
-                            <td>South Korea</td>
-                            <td>03/16/2023</td>
-
-                        </tr>
-                        <tr>
-                          <td>AI Smart Plug Pro</td>
-                          <td>Outlet</td>
-                            <td>Wi-Fi (Cloud)</td>
-                            <td>South Korea</td>
-                            <td>03/16/2023</td>
-
-                        </tr>
-                        <tr>
-                          <td>AI Smart Plug 16A</td>
-                          <td>Outlet</td>
-                            <td>Wi-Fi (Cloud)</td>
-                            <td>South Korea</td>
-                            <td>03/16/2023</td>
-
-                            </tr>
-                                                    <tr>
-                          <td>AI Smart Plug 16A Lite</td>
-                          <td>Outlet</td>
-                            <td>Wi-Fi (Cloud)</td>
-                            <td>South Korea</td>
-                            <td>03/16/2023</td>
-
-                            </tr>
-                                  <tr>
-                          <td>Premium IoT outlet</td>
-                          <td>Outlet</td>
-                            <td>Zigbee (Local)</td>
-                            <td>South Korea</td>
-                            <td>03/16/2023</td>
-
-                        </tr>
-                            <tr>
-                          <td>AI light switch</td>
-                          <td>Switch</td>
-                            <td>Zigbee (Local)</td>
-                            <td>South Korea</td>
-                            <td>03/16/2023</td>
-
-                        </tr>
-                         <tr>
-                          <td>Premium AI light switch</td>
-                          <td>Switch</td>
-                            <td>Zigbee (Local)</td>
-                            <td>South Korea</td>
-                            <td>03/16/2023</td>
-                        </tr>
-                         <tr>
-                          <td>AI Smart Power strip</td>
-                          <td>Outlet</td>
-                            <td>Wi-Fi (Cloud)</td>
-                            <td>South Korea</td>
-                            <td>03/16/2023</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Zigbang</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-        </section>
-        <section id="specious-things" class="tabcontent">
-        <section class="landing-specious">
-            <p lang="en">Not sure about safe</p>
-                <p lang="ko" style="display:none;">안전한 지 알 수가 없습니다</p>
-        </section>
-            <section class="nobubble">
-                <div class="responsive-bubble">
-                    <div class="bubble-textbox" id="bubble-textbox-2column-left">
-                    <h1>SpeciousThings</h1>
-                <p lang="en"><span class="textlogo">SpeciousThings</span> includes IoT products that have been certified not connected to Chinese servers, but may still be concern about Chinese backdoor or hacking threats.</p>
-                <p lang="ko" style="display:none;"><span class="textlogo">SpeciousThings</span>는 중국 서버와 연결되어 있지 않지만 여전히 중국 백도어나 해킹 위협이 우려될 수 있는 것으로 인증된 IoT 제품이 있습니다.</p>
-                <p lang="en">It do not use any Chinese servers but are made in China or have been handled by Chinese company when developed and manufactured. It may not pose a direct threat to your security at a glance, but they may still raise concerns about potential security risk.</p>
-                <p lang="ko" style="display:none;">중국 서버를 거치지는 않지만 Made in China 제품이거나 연구 개발이나 제조에서 중국 회사를 거쳤습니다. 언뜻 보기에는 보안에 위협이 되지 않을 수 있지만 여전히 잠재적 보안 위험에 대한 우려를 일으킵니다.</p>
-                <p lang="en">Here is lists of the <span class="textlogo">SpeciousThings</span></p>
-                <p lang="ko" style="display:none;"><span class="textlogo">SpeciousThings</span>의 리스트는 다음과 같습니다.</p>
-                    </div>                
-                    <div class="bubble-textbox" id="bubble-textbox-2column-right" style="display: block; text-align: center;">
-                    <img src="images/Specious_Things_badge(white).svg" height="64" alt="badge" style="margin:6px;"><img src="images/Specious_Things_badge(black).svg" height="64" alt="badge" style="margin:6px;">
-                    </div>
-
-                </div>
-            </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Aqara</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>BRUNT</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Lellki</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Hej home</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Useelink</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Tuya</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-        </section>
-        <section id="infected-things" class="tabcontent">
-            <section class="landing-infected">
-                <p lang="en">Oops...! The Chinese bear got your home key.<br>The bear say ni hao</p>
-                <p lang="ko" style="display:none;">중국의 어떤 곰이 여러분의 집 키를 갖고 있습니다<br>곰이 인사합니다 니하오~</p>
-        </section>
-            <section class="nobubble">
-                <div class="responsive-bubble">
-                    <div class="bubble-textbox" id="bubble-textbox-2column-left">
-                        <h1>InfectedThings</h1>
-                            <p lang="en"><span class="textlogo">InfectedThings</span> includes IoT products that have been certified as highest risk to your security as it completely made in China and use Chinese servers.</p>
-                            <p lang="ko" style="display:none;"><span class="textlogo">InfectedThings</span>는 100% 중국산이고 중국 서버를 거치는 만큼 보안에 가장 위험하다고 인증된 IoT 제품이 있습니다.</p>
-                            <p lang="en">It could potentially <span id="warning" style="font-weight: 900">steal your personal information and send it to the Chinese government</span> without your knowledge or consent. We highly recommend avoiding and removing it now.</p>
-                            <p  lang="ko" style="display:none;">이 것은 누구의 동의도 없이 <span id="warning" style="font-weight: 900">개인정보를 훔쳐 중국 정부에 보낼 수 있습니다.</span> 우리는 앞으로 이 것을 피하고 당장 없애는 것을 강력히 추천합니다.</p>
-                            <p lang="en">Here is lists of the <span class="textlogo">InfectedThings</span></p>
-                            <p  lang="ko" style="display:none;"><span class="textlogo">InfectedThings</span>의 리스트는 다음과 같습니다.</p>
-                    </div>                
-                    <div class="bubble-textbox" id="bubble-textbox-2column-right" style="display: block; text-align: center;">
-                    <img src="images/Infected_Things_badge(white).svg" height="64" alt="badge" style="margin:6px;"><img src="images/Infected_Things_badge(black).svg" height="64" alt="badge" style="margin:6px;">
-                    </div>
-                
-                </div>
-            </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Aqara</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Haier</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>MJIA</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>TP-LINK</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Tuya</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Xioami</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-            <section class="bubble" style="padding-bottom:24px;">
-                <h1>Yeelight</h1>
-                <table class="table">
-                         <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>                    
-
-
-                        </tbody>
-                    </table>
-                </section>
-        </section>
-    </main>
-    <div id="contribute-popup" class="overlay">
-    <div class="popup">
-        <div class="popup-header">
-            <h2 lang="en">How to contribute</h2>
-            <h2 lang="ko" style="display:none;">어떻게 수정하나요</h2>
-        </div>
-        <div class="popup-body">
-            <p lang="en">Visit our GitHub repository and fill out the sheet. Your contribution will help to smart home users around the world to fill out their home with <span class="textlogo">CleanThings</span>.</p> 
-            <p lang="ko" style="display:none;">GitHub 리포지토리에 들어가서 시트를 채우세요. 여러분의 기여는 전 세계 스마트홈 유저들이 <span class="textlogo">CleanThings</span>를 고르는 데에 도움이 될 것입니다.</p>
-                        <span lang="en"><a href="https://github.com/DoTheSmartThings/CleanThings" class="minnie" target="_blank" rel="noreferrer noopener">🔥 Visit NOW 🔥</a></span><span lang="ko" style="display:none;"><a href="https://github.com/DoTheSmartThings/CleanThings" class="minnie" target="_blank" rel="noreferrer noopener" style="font-family: 'SamsungOne-bold', 'SamsungOneKorean-bold', 'Noto Sans KR', sans-serif;">🔥 들어가기 🔥</a></span><br><br>
-        </div>
-        <div style="display: flex; justify-content: center; align-items: center;">
-            <button class="close-btn"><span lang="en">Close</span><span lang="ko" style="display:none;">닫기</span></button>
-        </div>
-    </div>
-</div>
-<div id="special-thanks-popup" class="overlay">
-    <div class="popup">
-        <div class="popup-header">
-            <h2 lang="en">Special Thanks</h2>
-            <h2 lang="ko" style="display:none;">고마운 분</h2>
-        </div>
-        <div class="popup-body">
-            <p><strong>Style</strong> :</p>
-            <p style="font-family: 'SamsungSharpSans-regular', 'SamsungOne-Regular'; color:#bdbdbd; padding: 0px;">Powered by <a href="https://oneuiweb.dev/#/" style="font-family: 'SamsungSharpSans-Bold', 'SamsungOne-Bold';color:#bdbdbd; padding:0px;" target="_blank" rel="noreferrer noopener">One UI Web</a></p><br>
-            <p lang="en"><strong>Sound therapy</strong> :</p>
-            <p lang="ko" style="display:none;"><strong>음악 치료</strong> :</p>
-            <p lang="en">'Expectations' by Minnie from (G)I-DLE &lt;3 and Anne Marie.<br>It's a developing time and, developing must have a watarful of coffee and 'Expectations' song by Minnie from (G)I-DLE&lt;3 and Anne-Marie.<br><br></p>
-            <p lang="ko" style="display:none;"><br>개발할 때는 커피 한 짝과 (여자)아이들 민니&lt;3와 앤마리가 부른 노래 'Expectations'이 없으면 안됩니다.<br><br></p>
-            <span lang="en"><a href="https://youtu.be/jrt4iWhofPA" class="minnie" target="_blank" rel="noreferrer noopener">🎶 Listen NOW 🎶</a></span><span lang="ko" style="display:none;"><a href="https://github.com/DoTheSmartThings/CleanThings" class="minnie" target="_blank" rel="noreferrer noopener" style="font-family: 'SamsungOne-bold', 'SamsungOneKorean-bold', 'Noto Sans KR', sans-serif;">🔥 꼭 들어 보세요 🔥</a></span><br><br>
-            <br>
-        </div>
-        <div style="display: flex; justify-content: center; align-items: center;">
-            <button class="close-btn"><span lang="en">Close</span><span lang="ko" style="display:none;">닫기</span></button>
-        </div>
-    </div>
-</div>
-<div id="badge-popup" class="overlay">
-    <div class="popup">
-        <div class="popup-header">
-            <h2 lang="en">Types of badge</h2>
-            <h2 lang="ko" style="display:none;">배지 리스트</h2>
-        </div>
-        <div class="popup-body" style="max-height:492px; overflow: scroll;">
-            <p lang="en">There are 3 types of badge we released. You can download and apply these badges to IoT products through right click and copy files which formed as SVG vector.</p>
-            <p lang="ko" style="display:none;">우리는 3가지의 배지를 내고 있습니다. SVG 벡터로 이루어진 이 배지들의 파일을 마우스 오른 쪽 클릭으로 복사해서 IoT 제품에 배지를 붙일 수 있습니다.</p>
-            <p lang="en">There aren't any design guide and permission required. Just apply these badges in way you want.</p>
-            <p lang="ko" style="display:none;">여기에는 어떠한 디자인 가이드나 허가가 없어도 됩니다. 그냥 알아서 붙이세요</p>
-            <p lang="en"><strong>White type</strong> :</p>
-            <p lang="ko" style="display:none;"><strong>화이트 타입</strong> :</p>
-            <img src="images/Clean_Things_badge(white).svg" height="64" alt="badge">
-            <img src="images/Specious_Things_badge(white).svg" height="64" alt="badge">
-            <img src="images/Infected_Things_badge(white).svg" height="64" alt="badge">
-            <br>
-            <p lang="en"><strong>Black type</strong> :</p>
-            <p lang="ko" style="display:none;"><strong>블랙 타입</strong> :</p>
-            <img src="images/Clean_Things_badge(black).svg" height="64" alt="badge">
-            <img src="images/Specious_Things_badge(black).svg" height="64" alt="badge">
-            <img src="images/Infected_Things_badge(black).svg" height="64" alt="badge">
-            <br><br>
-        </div>
-        <div style="display: flex; justify-content: center; align-items: center;">
-            <button class="close-btn"><span lang="en">Close</span><span lang="ko" style="display:none;">닫기</span></button>
-        </div>
-    </div>
-</div>
-<div id="contact-popup" class="overlay">
-    <div class="popup">
-        <div class="popup-header">
-            <h2 lang="en">Dear Chinese manufacturers</h2>
-            <h2 lang="ko" style="display:none;">억울한 중국 제조사에게 보냅니다</h2>
-        </div>
-        <div class="popup-body">
-            <p lang="en">I'm right and you're wrong.</p>
-            <p lang="ko" style="display:none;">나는 옳고 너는 틀렸다.</p>
-            <p lang="en">You Chinese should stop steal information from every smart home user in the world from right now.</p> 
-            <p lang="ko" style="display:none;">중국인은 전 세계의 모든 스마트홈 유저들로부터 정보를 훔치는 것을 멈춰야 한다.</p> 
-        </div>
-        <div style="display: flex; justify-content: center; align-items: center;">
-            <button class="close-btn"><span lang="en">Close</span><span lang="ko" style="display:none;">닫기</span></button>
-        </div>
-    </div>
-</div>
-    <div class="tab">
-        <button class="tabbutton active" data-tab="home">
-            <img src="icons/Home.svg" width="25" height="25">
-            <span class="menu-text">Home</span>
-        </button>
-        <button class="tabbutton" data-tab="clean-things">
-            <img src="icons/Clean_Things.svg" width="25" height="25">
-            <span class="menu-text">Clean</span>
-        </button>
-        <button class="tabbutton" data-tab="specious-things">
-            <img src="icons/Specious_Things.svg" width="25" height="25">
-            <span class="menu-text">Specious</span>
-            
-        </button>
-        <button class="tabbutton" data-tab="infected-things">
-            <img src="icons/Infected_Things_selected.svg" width="25" height="25">
-            <span class="menu-text" id="warning">Infected</span>
-        </button>
-    </div>
-    <script>
-        const tabButtons = document.querySelectorAll('.tabbutton');
-        const tabContents = document.querySelectorAll('.tabcontent');
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Hide all tab contents
-                tabContents.forEach(content => content.classList.remove('active'));
-
-                // Show the selected tab content
-                const tab = button.dataset.tab;
-                document.getElementById(tab).classList.add('active');
-            });
-        });
-
-
-        // Get all elements with class="tabcontent" and hide them
-        let tabcontent = document.getElementsByClassName("tabcontent");
-        for (let i = 0; i < tabcontent.length; i++) {
-            if (!tabcontent[i].classList.contains("active")) {
-                tabcontent[i].style.display = "none";
             }
-        }
+            .minnie:hover {
+                background-color: #dcdcdc;
+            }
+            .close-btn {
+                background-color: transparent;
+                border: none;
+                margin: 12px;
+                width: 50%;
+                padding: 12px 24px;
+                background-color: #f2f2f2;
+                border-radius: 24px;
+                transition: background-color 0.3s ease-in-out;
+                text-align: center;
+            }
+            .close-btn:hover {
+                background-color: #dcdcdc;
+            }
+        </style>
+    </head>
 
-        // Get all elements with class="tabbutton" and attach click event listener
-        let tabbutton = document.getElementsByClassName("tabbutton");
-        for (let i = 0; i < tabbutton.length; i++) {
-            let button = tabbutton[i];
-            let content = document.getElementById(button.dataset.tab);
+    <body id="content">
+        <header>
+            <nav class="GNB">
+                <button class="tabbutton active" data-tab="home">
+                    <div class="logo">
+                        <img
+                            src="icons/Clean_Things_logo.svg"
+                            width="44"
+                            height="44"
+                            alt="Logo" />
+                    </div>
+                </button>
+                <div class="title">
+                    <div class="container">
+                        <h1>CleanThings</h1>
+                    </div>
+                </div>
+                <div class="menu">
+                    <button class="dropbtn">
+                        <img
+                            src="icons/vertical_ellipsis.svg"
+                            alt="Menu Icon" />
+                    </button>
+                    <div class="dropdown-content">
+                        <a
+                            href="https://github.com/DoTheSmartThings/CleanThings"
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            >GitHub</a
+                        >
+                        <a
+                            href="#"
+                            class="popup-link"
+                            data-popup-target="#contribute-popup"
+                            ><span lang="en">How to contribute</span
+                            ><span lang="ko" style="display: none"
+                                >어떻게 수정하나요</span
+                            ></a
+                        >
+                        <a
+                            href="#"
+                            class="popup-link"
+                            data-popup-target="#badge-popup"
+                            ><span lang="en">Types of badge</span
+                            ><span lang="ko" style="display: none"
+                                >배지 리스트</span
+                            ></a
+                        >
+                        <a
+                            href="#"
+                            class="popup-link"
+                            data-popup-target="#special-thanks-popup"
+                            ><span lang="en">Special Thanks</span
+                            ><span lang="ko" style="display: none"
+                                >고마운 분</span
+                            ></a
+                        >
+                        <a
+                            href="#"
+                            class="popup-link"
+                            data-popup-target="#contact-popup"
+                            ><span lang="en"
+                                >This is not fair<br />(Contact)</span
+                            ><span lang="ko" style="display: none"
+                                >중국 제조사는 여기서 문의하세요</span
+                            ></a
+                        >
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div
+                id="lang-dialog"
+                class="bubble responsive-bubble-singleline"
+                style="background-color: #0072de; color: #fefefe">
+                <div class="bubble-textbox" id="bubble-textbox-2column-left">
+                    <h3 lang="en">Select your language</h3>
+                    <h3 lang="ko" style="display: none">언어를 고르세요</h3>
+                </div>
+                <div
+                    class="bubble-textbox"
+                    id="bubble-textbox-2column-right"
+                    style="text-align: right">
+                    <button id="lang-en">English</button>
+                    <button id="lang-ko">한국어</button>
+                    <button id="lang-close">X</button>
+                </div>
+            </div>
+            <section id="home" class="tabcontent active">
+                <section class="landing">
+                    <p lang="en">
+                        Find IoT devices and sensors that free from any Chinese
+                        backdoor or hacking threats.
+                    </p>
+                    <p lang="ko" style="display: none">
+                        중국의 백도어나 해킹 위협으로부터 자유로운 IoT 기기와
+                        센서만 찾으세요.
+                    </p>
+                </section>
+                <section class="nobubble landing-home-001">
+                    <div class="responsive-bubble">
+                        <div
+                            class="bubble-textbox"
+                            id="bubble-textbox-2column-left">
+                            <h1 lang="en">There is no place like home</h1>
+                            <h1 lang="ko" style="display: none">
+                                집보다 나은 곳은 없습니다
+                            </h1>
+                        </div>
+                        <div
+                            class="bubble-textbox"
+                            id="bubble-textbox-2column-right">
+                            <img
+                                src="images/leaf_and_phone.svg"
+                                height="684"
+                                id="leaf" />
+                            <img src="images/water.svg" id="water" />
+                            <p
+                                lang="en"
+                                style="
+                                    background-color: rgb(242, 242, 242, 0.8);
+                                    border-radius: 12px;
+                                ">
+                                So keep save your home from Chinese threats.
+                                Don't let Chinese government and hacker steal
+                                your information from your devices<br /><br />Do
+                                left only the
+                                <span class="textlogo">CleanThings</span> in
+                                your smart home
+                            </p>
+                            <p
+                                lang="ko"
+                                style="
+                                    background-color: rgb(242, 242, 242, 0.8);
+                                    border-radius: 12px;
+                                    display: none;
+                                ">
+                                그러니 중국의 위협으로부터 집을 지키세요.
+                                <br />중국 정부와 해커가 여러분의 IoT 기기에서
+                                개인정보를 훔치지 못하게 하세요.<br /><br />스마트홈에
+                                깨끗한
+                                <span class="textlogo">CleanThings</span>만
+                                남기세요.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="bubble">
+                    <div class="responsive-bubble">
+                        <div
+                            class="bubble-textbox"
+                            id="bubble-textbox-2column-left"
+                            style="display: block; text-align: center">
+                            <img
+                                src="images/certified.svg"
+                                height="auto"
+                                id="certified" />
+                        </div>
+                        <div
+                            class="bubble-textbox"
+                            id="bubble-textbox-2column-right">
+                            <h1 lang="en">What are we do is</h1>
+                            <h1 lang="ko" style="display: none">
+                                우리가 하는 것은
+                            </h1>
+                            <p lang="en">
+                                Certifying IoT products that have been free from
+                                any Chinese backdoor or hacking threats. And,
+                                also naming and shaming IoT products and
+                                companies which steal users data to deliver it
+                                to the Chinese government and Chinese Communist
+                                Party.
+                            </p>
+                            <p lang="en">
+                                The way you can be a part of us to achieve our
+                                goal is very simple
+                            </p>
+                            <p lang="ko" style="display: none">
+                                중국 백도어나 해킹위협으로부터 자유로운 IoT
+                                제품을 인증합니다. 또 사용자 데이터를 훔쳐 중국
+                                정부와 중국 공산당에 전달하는 IoT 제품 및 업체의
+                                이름을 걸어 수치스러움을 주고 있습니다.
+                            </p>
+                            <p lang="ko" style="display: none">
+                                여러분이 한 마음이 되어 이 목표를 이루는 방법은
+                                매우 쉽습니다
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <div class="responsive-bubble">
+                    <section
+                        class="bubble bubble-clean tabbutton"
+                        style="color: #f0f0f0; border-radius: 24px"
+                        data-tab="clean-things">
+                        <h1 lang="en">Shout out<br />CleanThings</h1>
+                        <h1 lang="ko" style="display: none">
+                            CleanThings을<br />고르세요
+                        </h1>
+                        <img
+                            src="images/Clean_Things_badge(white).svg"
+                            height="64"
+                            alt="badge"
+                            style="position: absolute; bottom: 24px" />
+                    </section>
+                    <section
+                        class="bubble bubble-specious tabbutton"
+                        style="color: #f0f0f0; border-radius: 24px"
+                        data-tab="specious-things">
+                        <h1 lang="en">Watch out<br />SpeciousThings</h1>
+                        <h1 lang="ko" style="display: none">
+                            SpeciousThings을<br />조심히 고민하세요
+                        </h1>
+                        <img
+                            src="images/Specious_Things_badge(white).svg"
+                            height="64"
+                            alt="badge"
+                            style="position: absolute; bottom: 24px" />
+                    </section>
+                    <section
+                        class="bubble bubble-infected tabbutton"
+                        style="color: #f0f0f0; border-radius: 24px"
+                        data-tab="infected-things">
+                        <h1 lang="en">Throw out<br />InfectedThings</h1>
+                        <h1 lang="ko" style="display: none">
+                            InfectedThings을<br />버리세요
+                        </h1>
+                        <img
+                            src="images/Infected_Things_badge(white).svg"
+                            height="64"
+                            alt="badge"
+                            style="position: absolute; bottom: 24px" />
+                    </section>
+                </div>
+                <section></section>
+            </section>
+            <section id="clean-things" class="tabcontent">
+                <section class="landing-clean">
+                    <p lang="en">No Chinese Backdoor detected</p>
+                    <p lang="ko" style="display: none">
+                        중국의 백도어가 하나도 없습니다
+                    </p>
+                </section>
 
+                <section class="nobubble">
+                    <div class="responsive-bubble">
+                        <div
+                            class="bubble-textbox"
+                            id="bubble-textbox-2column-left">
+                            <h1>CleanThings</h1>
+                            <p lang="en">
+                                <span class="textlogo">CleanThings</span>
+                                includes IoT products that have been certified
+                                free from any Chinese backdoor or hacking
+                                threats.
+                            </p>
+                            <p lang="ko" style="display: none">
+                                <span class="textlogo">CleanThings</span>는 중국
+                                백도어나 해킹 위협으로부터 자유로운 것으로
+                                인증된 IoT 제품이 있습니다.
+                            </p>
+                            <p lang="en">
+                                It have been manufactured outside of China, and
+                                do not use any Chinese servers. You can be
+                                assured that your smart home is safe from
+                                Chinese backdoor threats by using
+                                <span class="textlogo">CleanThings</span>
+                            </p>
+                            <p lang="ko" style="display: none">
+                                중국이 아닌 곳에서 만들어졌으며 중국 서버를
+                                거치지 않습니다.
+                                <span class="textlogo">CleanThings</span>로
+                                지어진 스마트홈은 중국 백도어 위협으로부터
+                                안전하고 자유롭습니다.
+                            </p>
+                            <p lang="en">
+                                Here is lists of the
+                                <span class="textlogo">CleanThings</span>
+                            </p>
+                            <p lang="ko" style="display: none">
+                                <span class="textlogo">CleanThings</span>의
+                                리스트는 다음과 같습니다.
+                            </p>
+                        </div>
+                        <div
+                            class="bubble-textbox"
+                            id="bubble-textbox-2column-right"
+                            style="display: block; text-align: center">
+                            <img
+                                src="images/Clean_Things_badge(white).svg"
+                                height="64"
+                                alt="badge"
+                                style="margin: 6px" /><img
+                                src="images/Clean_Things_badge(black).svg"
+                                height="64"
+                                alt="badge"
+                                style="margin: 6px" />
+                        </div>
+                    </div>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Aeotec</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Britzy</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>dacor</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>FIBARO</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Easyroll</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>ecobee</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>EnerZipper</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>eZEX</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>IKEA</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>KeyWe</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Nanoleaf</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Nest</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Philips</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Ring</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Samsung</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>SiHAS</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>SmartThings</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>SoluM</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Somfy</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Sonoff</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>SwitchBot</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Power Manager</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ZigBee Smart plug 16A SmartThings</td>
+                                <td>Smart plug</td>
+                                <td>Zigbee (Local)</td>
+                                <td>South Korea</td>
+                                <td>03/16/2023</td>
+                            </tr>
+                            <tr>
+                                <td>Z-Wave Smart plug 16A SmartThings</td>
+                                <td>Smart plug</td>
+                                <td>Z-Wave (Local)</td>
+                                <td>South Korea</td>
+                                <td>03/16/2023</td>
+                            </tr>
+                            <tr>
+                                <td>ZigBee outlet SmartThings</td>
+                                <td>Outlet</td>
+                                <td>Zigbee (Local)</td>
+                                <td>South Korea</td>
+                                <td>03/16/2023</td>
+                            </tr>
+                            <tr>
+                                <td>AI Smart Plug Pro</td>
+                                <td>Outlet</td>
+                                <td>Wi-Fi (Cloud)</td>
+                                <td>South Korea</td>
+                                <td>03/16/2023</td>
+                            </tr>
+                            <tr>
+                                <td>AI Smart Plug 16A</td>
+                                <td>Outlet</td>
+                                <td>Wi-Fi (Cloud)</td>
+                                <td>South Korea</td>
+                                <td>03/16/2023</td>
+                            </tr>
+                            <tr>
+                                <td>AI Smart Plug 16A Lite</td>
+                                <td>Outlet</td>
+                                <td>Wi-Fi (Cloud)</td>
+                                <td>South Korea</td>
+                                <td>03/16/2023</td>
+                            </tr>
+                            <tr>
+                                <td>Premium IoT outlet</td>
+                                <td>Outlet</td>
+                                <td>Zigbee (Local)</td>
+                                <td>South Korea</td>
+                                <td>03/16/2023</td>
+                            </tr>
+                            <tr>
+                                <td>AI light switch</td>
+                                <td>Switch</td>
+                                <td>Zigbee (Local)</td>
+                                <td>South Korea</td>
+                                <td>03/16/2023</td>
+                            </tr>
+                            <tr>
+                                <td>Premium AI light switch</td>
+                                <td>Switch</td>
+                                <td>Zigbee (Local)</td>
+                                <td>South Korea</td>
+                                <td>03/16/2023</td>
+                            </tr>
+                            <tr>
+                                <td>AI Smart Power strip</td>
+                                <td>Outlet</td>
+                                <td>Wi-Fi (Cloud)</td>
+                                <td>South Korea</td>
+                                <td>03/16/2023</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Zigbang</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+            </section>
+            <section id="specious-things" class="tabcontent">
+                <section class="landing-specious">
+                    <p lang="en">Not sure about safe</p>
+                    <p lang="ko" style="display: none">
+                        안전한 지 알 수가 없습니다
+                    </p>
+                </section>
+                <section class="nobubble">
+                    <div class="responsive-bubble">
+                        <div
+                            class="bubble-textbox"
+                            id="bubble-textbox-2column-left">
+                            <h1>SpeciousThings</h1>
+                            <p lang="en">
+                                <span class="textlogo">SpeciousThings</span>
+                                includes IoT products that have been certified
+                                not connected to Chinese servers, but may still
+                                be concern about Chinese backdoor or hacking
+                                threats.
+                            </p>
+                            <p lang="ko" style="display: none">
+                                <span class="textlogo">SpeciousThings</span>는
+                                중국 서버와 연결되어 있지 않지만 여전히 중국
+                                백도어나 해킹 위협이 우려될 수 있는 것으로
+                                인증된 IoT 제품이 있습니다.
+                            </p>
+                            <p lang="en">
+                                It do not use any Chinese servers but are made
+                                in China or have been handled by Chinese company
+                                when developed and manufactured. It may not pose
+                                a direct threat to your security at a glance,
+                                but they may still raise concerns about
+                                potential security risk.
+                            </p>
+                            <p lang="ko" style="display: none">
+                                중국 서버를 거치지는 않지만 Made in China
+                                제품이거나 연구 개발이나 제조에서 중국 회사를
+                                거쳤습니다. 언뜻 보기에는 보안에 위협이 되지
+                                않을 수 있지만 여전히 잠재적 보안 위험에 대한
+                                우려를 일으킵니다.
+                            </p>
+                            <p lang="en">
+                                Here is lists of the
+                                <span class="textlogo">SpeciousThings</span>
+                            </p>
+                            <p lang="ko" style="display: none">
+                                <span class="textlogo">SpeciousThings</span>의
+                                리스트는 다음과 같습니다.
+                            </p>
+                        </div>
+                        <div
+                            class="bubble-textbox"
+                            id="bubble-textbox-2column-right"
+                            style="display: block; text-align: center">
+                            <img
+                                src="images/Specious_Things_badge(white).svg"
+                                height="64"
+                                alt="badge"
+                                style="margin: 6px" /><img
+                                src="images/Specious_Things_badge(black).svg"
+                                height="64"
+                                alt="badge"
+                                style="margin: 6px" />
+                        </div>
+                    </div>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Aqara</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>BRUNT</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Lellki</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Hej home</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Useelink</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Tuya</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+            </section>
+            <section id="infected-things" class="tabcontent">
+                <section class="landing-infected">
+                    <p lang="en">
+                        Oops...! The Chinese bear got your home key.<br />The
+                        bear say ni hao
+                    </p>
+                    <p lang="ko" style="display: none">
+                        중국의 어떤 곰이 여러분의 집 키를 갖고 있습니다<br />곰이
+                        인사합니다 니하오~
+                    </p>
+                </section>
+                <section class="nobubble">
+                    <div class="responsive-bubble">
+                        <div
+                            class="bubble-textbox"
+                            id="bubble-textbox-2column-left">
+                            <h1>InfectedThings</h1>
+                            <p lang="en">
+                                <span class="textlogo">InfectedThings</span>
+                                includes IoT products that have been certified
+                                as highest risk to your security as it
+                                completely made in China and use Chinese
+                                servers.
+                            </p>
+                            <p lang="ko" style="display: none">
+                                <span class="textlogo">InfectedThings</span>는
+                                100% 중국산이고 중국 서버를 거치는 만큼 보안에
+                                가장 위험하다고 인증된 IoT 제품이 있습니다.
+                            </p>
+                            <p lang="en">
+                                It could potentially
+                                <span id="warning" style="font-weight: 900"
+                                    >steal your personal information and send it
+                                    to the Chinese government</span
+                                >
+                                without your knowledge or consent. We highly
+                                recommend avoiding and removing it now.
+                            </p>
+                            <p lang="ko" style="display: none">
+                                이 것은 누구의 동의도 없이
+                                <span id="warning" style="font-weight: 900"
+                                    >개인정보를 훔쳐 중국 정부에 보낼 수
+                                    있습니다.</span
+                                >
+                                우리는 앞으로 이 것을 피하고 당장 없애는 것을
+                                강력히 추천합니다.
+                            </p>
+                            <p lang="en">
+                                Here is lists of the
+                                <span class="textlogo">InfectedThings</span>
+                            </p>
+                            <p lang="ko" style="display: none">
+                                <span class="textlogo">InfectedThings</span>의
+                                리스트는 다음과 같습니다.
+                            </p>
+                        </div>
+                        <div
+                            class="bubble-textbox"
+                            id="bubble-textbox-2column-right"
+                            style="display: block; text-align: center">
+                            <img
+                                src="images/Infected_Things_badge(white).svg"
+                                height="64"
+                                alt="badge"
+                                style="margin: 6px" /><img
+                                src="images/Infected_Things_badge(black).svg"
+                                height="64"
+                                alt="badge"
+                                style="margin: 6px" />
+                        </div>
+                    </div>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Aqara</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Haier</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>MJIA</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>TP-LINK</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Tuya</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Xioami</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+                <section class="bubble" style="padding-bottom: 24px">
+                    <h1>Yeelight</h1>
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Protocols</th>
+                            <th>Country</th>
+                            <th>Certified Dates</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+            </section>
+        </main>
+        <div id="contribute-popup" class="overlay">
+            <div class="popup">
+                <div class="popup-header">
+                    <h2 lang="en">How to contribute</h2>
+                    <h2 lang="ko" style="display: none">어떻게 수정하나요</h2>
+                </div>
+                <div class="popup-body">
+                    <p lang="en">
+                        Visit our GitHub repository and fill out the sheet. Your
+                        contribution will help to smart home users around the
+                        world to fill out their home with
+                        <span class="textlogo">CleanThings</span>.
+                    </p>
+                    <p lang="ko" style="display: none">
+                        GitHub 리포지토리에 들어가서 시트를 채우세요. 여러분의
+                        기여는 전 세계 스마트홈 유저들이
+                        <span class="textlogo">CleanThings</span>를 고르는 데에
+                        도움이 될 것입니다.
+                    </p>
+                    <span lang="en"
+                        ><a
+                            href="https://github.com/DoTheSmartThings/CleanThings"
+                            class="minnie"
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            >🔥 Visit NOW 🔥</a
+                        ></span
+                    ><span lang="ko" style="display: none"
+                        ><a
+                            href="https://github.com/DoTheSmartThings/CleanThings"
+                            class="minnie"
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            style="
+                                font-family: 'SamsungOne-bold',
+                                    'SamsungOneKorean-bold', 'Noto Sans KR',
+                                    sans-serif;
+                            "
+                            >🔥 들어가기 🔥</a
+                        ></span
+                    ><br /><br />
+                </div>
+                <div
+                    style="
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    ">
+                    <button class="close-btn">
+                        <span lang="en">Close</span
+                        ><span lang="ko" style="display: none">닫기</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="special-thanks-popup" class="overlay">
+            <div class="popup">
+                <div class="popup-header">
+                    <h2 lang="en">Special Thanks</h2>
+                    <h2 lang="ko" style="display: none">고마운 분</h2>
+                </div>
+                <div class="popup-body">
+                    <p><strong>Style</strong> :</p>
+                    <p
+                        style="
+                            font-family: 'SamsungSharpSans-regular',
+                                'SamsungOne-Regular';
+                            color: #bdbdbd;
+                            padding: 0px;
+                        ">
+                        Powered by
+                        <a
+                            href="https://oneuiweb.dev/#/"
+                            style="
+                                font-family: 'SamsungSharpSans-Bold',
+                                    'SamsungOne-Bold';
+                                color: #bdbdbd;
+                                padding: 0px;
+                            "
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            >One UI Web</a
+                        >
+                    </p>
+                    <br />
+                    <p lang="en"><strong>Sound therapy</strong> :</p>
+                    <p lang="ko" style="display: none">
+                        <strong>음악 치료</strong> :
+                    </p>
+                    <p lang="en">
+                        'Expectations' by Minnie from (G)I-DLE &lt;3 and Anne
+                        Marie.<br />It's a developing time and, developing must
+                        have a watarful of coffee and 'Expectations' song by
+                        Minnie from (G)I-DLE&lt;3 and Anne-Marie.<br /><br />
+                    </p>
+                    <p lang="ko" style="display: none">
+                        <br />개발할 때는 커피 한 짝과 (여자)아이들 민니&lt;3와
+                        앤마리가 부른 노래 'Expectations'이 없으면 안됩니다.<br /><br />
+                    </p>
+                    <span lang="en"
+                        ><a
+                            href="https://youtu.be/jrt4iWhofPA"
+                            class="minnie"
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            >🎶 Listen NOW 🎶</a
+                        ></span
+                    ><span lang="ko" style="display: none"
+                        ><a
+                            href="https://github.com/DoTheSmartThings/CleanThings"
+                            class="minnie"
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            style="
+                                font-family: 'SamsungOne-bold',
+                                    'SamsungOneKorean-bold', 'Noto Sans KR',
+                                    sans-serif;
+                            "
+                            >🔥 꼭 들어 보세요 🔥</a
+                        ></span
+                    ><br /><br />
+                    <br />
+                </div>
+                <div
+                    style="
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    ">
+                    <button class="close-btn">
+                        <span lang="en">Close</span
+                        ><span lang="ko" style="display: none">닫기</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="badge-popup" class="overlay">
+            <div class="popup">
+                <div class="popup-header">
+                    <h2 lang="en">Types of badge</h2>
+                    <h2 lang="ko" style="display: none">배지 리스트</h2>
+                </div>
+                <div
+                    class="popup-body"
+                    style="max-height: 492px; overflow: scroll">
+                    <p lang="en">
+                        There are 3 types of badge we released. You can download
+                        and apply these badges to IoT products through right
+                        click and copy files which formed as SVG vector.
+                    </p>
+                    <p lang="ko" style="display: none">
+                        우리는 3가지의 배지를 내고 있습니다. SVG 벡터로 이루어진
+                        이 배지들의 파일을 마우스 오른 쪽 클릭으로 복사해서 IoT
+                        제품에 배지를 붙일 수 있습니다.
+                    </p>
+                    <p lang="en">
+                        There aren't any design guide and permission required.
+                        Just apply these badges in way you want.
+                    </p>
+                    <p lang="ko" style="display: none">
+                        여기에는 어떠한 디자인 가이드나 허가가 없어도 됩니다.
+                        그냥 알아서 붙이세요
+                    </p>
+                    <p lang="en"><strong>White type</strong> :</p>
+                    <p lang="ko" style="display: none">
+                        <strong>화이트 타입</strong> :
+                    </p>
+                    <img
+                        src="images/Clean_Things_badge(white).svg"
+                        height="64"
+                        alt="badge" />
+                    <img
+                        src="images/Specious_Things_badge(white).svg"
+                        height="64"
+                        alt="badge" />
+                    <img
+                        src="images/Infected_Things_badge(white).svg"
+                        height="64"
+                        alt="badge" />
+                    <br />
+                    <p lang="en"><strong>Black type</strong> :</p>
+                    <p lang="ko" style="display: none">
+                        <strong>블랙 타입</strong> :
+                    </p>
+                    <img
+                        src="images/Clean_Things_badge(black).svg"
+                        height="64"
+                        alt="badge" />
+                    <img
+                        src="images/Specious_Things_badge(black).svg"
+                        height="64"
+                        alt="badge" />
+                    <img
+                        src="images/Infected_Things_badge(black).svg"
+                        height="64"
+                        alt="badge" />
+                    <br /><br />
+                </div>
+                <div
+                    style="
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    ">
+                    <button class="close-btn">
+                        <span lang="en">Close</span
+                        ><span lang="ko" style="display: none">닫기</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="contact-popup" class="overlay">
+            <div class="popup">
+                <div class="popup-header">
+                    <h2 lang="en">Dear Chinese manufacturers</h2>
+                    <h2 lang="ko" style="display: none">
+                        억울한 중국 제조사에게 보냅니다
+                    </h2>
+                </div>
+                <div class="popup-body">
+                    <p lang="en">I'm right and you're wrong.</p>
+                    <p lang="ko" style="display: none">
+                        나는 옳고 너는 틀렸다.
+                    </p>
+                    <p lang="en">
+                        You Chinese should stop steal information from every
+                        smart home user in the world from right now.
+                    </p>
+                    <p lang="ko" style="display: none">
+                        중국인은 전 세계의 모든 스마트홈 유저들로부터 정보를
+                        훔치는 것을 멈춰야 한다.
+                    </p>
+                </div>
+                <div
+                    style="
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    ">
+                    <button class="close-btn">
+                        <span lang="en">Close</span
+                        ><span lang="ko" style="display: none">닫기</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="tab">
+            <button class="tabbutton active" data-tab="home">
+                <img src="icons/Home.svg" width="25" height="25" />
+                <span class="menu-text">Home</span>
+            </button>
+            <button class="tabbutton" data-tab="clean-things">
+                <img src="icons/Clean_Things.svg" width="25" height="25" />
+                <span class="menu-text">Clean</span>
+            </button>
+            <button class="tabbutton" data-tab="specious-things">
+                <img src="icons/Specious_Things.svg" width="25" height="25" />
+                <span class="menu-text">Specious</span>
+            </button>
+            <button class="tabbutton" data-tab="infected-things">
+                <img
+                    src="icons/Infected_Things_selected.svg"
+                    width="25"
+                    height="25" />
+                <span class="menu-text" id="warning">Infected</span>
+            </button>
+        </div>
+        <script>
+            const tabButtons = document.querySelectorAll(".tabbutton");
+            const tabContents = document.querySelectorAll(".tabcontent");
 
-            button.addEventListener("click", function() {
-                for (let j = 0; j < tabbutton.length; j++) {
-                    tabbutton[j].classList.remove("active");
-                }
+            tabButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    // Hide all tab contents
+                    tabContents.forEach((content) =>
+                        content.classList.remove("active")
+                    );
 
-                for (let j = 0; j < tabcontent.length; j++) {
-                    tabcontent[j].style.display = "none";
-                }
-
-                content.style.display = "block";
-                button.classList.add("active");
+                    // Show the selected tab content
+                    const tab = button.dataset.tab;
+                    document.getElementById(tab).classList.add("active");
+                });
             });
-        }
 
-        //popup
-// Get all the popup links
-const popupLinks = document.querySelectorAll('.popup-link');
+            // Get all elements with class="tabcontent" and hide them
+            let tabcontent = document.getElementsByClassName("tabcontent");
+            for (let i = 0; i < tabcontent.length; i++) {
+                if (!tabcontent[i].classList.contains("active")) {
+                    tabcontent[i].style.display = "none";
+                }
+            }
 
-// Loop through each popup link
-popupLinks.forEach(function(popupLink) {
+            // Get all elements with class="tabbutton" and attach click event listener
+            let tabbutton = document.getElementsByClassName("tabbutton");
+            for (let i = 0; i < tabbutton.length; i++) {
+                let button = tabbutton[i];
+                let content = document.getElementById(button.dataset.tab);
 
-  // Get the target popup using the data-popup-target attribute
-  const popupTarget = document.querySelector(popupLink.getAttribute('data-popup-target'));
+                button.addEventListener("click", function () {
+                    for (let j = 0; j < tabbutton.length; j++) {
+                        tabbutton[j].classList.remove("active");
+                    }
 
-  // Get the close button for the popup
-  const closeBtn = popupTarget.querySelector('.close-btn');
+                    for (let j = 0; j < tabcontent.length; j++) {
+                        tabcontent[j].style.display = "none";
+                    }
 
-  // Add event listener to the popup link
-  popupLink.addEventListener('click', function(event) {
-    event.preventDefault();
+                    content.style.display = "block";
+                    button.classList.add("active");
+                });
+            }
 
-    // Show the target popup
-    popupTarget.style.display = 'flex';
-  });
+            //popup
+            // Get all the popup links
+            const popupLinks = document.querySelectorAll(".popup-link");
 
-  // Add event listener to the close button
-  closeBtn.addEventListener('click', function() {
-    // Hide the target popup
-    popupTarget.style.display = 'none';
-  });
-});
-    </script>
-</body>
-<footer>
-    <p style="font-family: 'SamsungSharpSans-regular', 'SamsungOne-Regular';">&copy; 2023 <span class="textlogo">CleanThings</span></p>
-    <p style="font-family: 'SamsungSharpSans-regular', 'SamsungOne-Regular'; color:#bdbdbd;">Powered by <a href="https://oneuiweb.dev/#/" style="font-family: 'SamsungSharpSans-Bold', 'SamsungOne-Bold';color:#bdbdbd;" target="_blank" rel="noreferrer noopener">One UI Web</a></p>
-    <small>动态网自由门 天安門 天安门 法輪功 李洪志 Free Tibet 六四天安門事件 The Tiananmen Square protests of 1989 天安門大屠殺 The Tiananmen Square Massacre 反右派鬥爭 The Anti-Rightist Struggle 大躍進政策 The Great Leap Forward 文化大革命 The Great Proletarian Cultural Revolution 人權 Human Rights 民運 Democratization 自由 Freedom 獨立 Independence 多黨制 Multi-party system 台灣 臺灣 Taiwan Formosa 中華民國 Republic of China 西藏 土伯特 唐古特 Tibet 達賴喇嘛 Dalai Lama 法輪功 Falun Dafa 新疆維吾爾自治區 The Xinjiang Uyghur Autonomous Region 諾貝爾和平獎 Nobel Peace Prize 劉暁波 Liu Xiaobo 民主 言論 思想 反共 反革命 抗議 運動 騷亂 暴亂 騷擾 擾亂 抗暴 平反 維權 示威游行 李洪志 法輪大法 大法弟子 強制斷種 強制堕胎 民族淨化 人體實驗 肅清 胡耀邦 趙紫陽 魏京生 王丹 還政於民 和平演變 激流中國 北京之春 大紀元時報 九評論共産黨 獨裁 專制 壓制 統一 監視 鎮壓 迫害 侵略 掠奪 破壞 拷問 屠殺 活摘器官 誘拐 買賣人口 遊進 走私 毒品 賣淫 春畫 賭博 六合彩 天安門 天安门 法輪功 李洪志 Winnie the Pooh 劉曉波动态网自由门</small>
-    <script>
-            
-//languageswitchin
-// Get dialog element
-      var langDialog = document.getElementById("lang-dialog");
+            // Loop through each popup link
+            popupLinks.forEach(function (popupLink) {
+                // Get the target popup using the data-popup-target attribute
+                const popupTarget = document.querySelector(
+                    popupLink.getAttribute("data-popup-target")
+                );
 
-      // Get language switch buttons
-      var langEnButton = document.getElementById("lang-en");
-      var langKoButton = document.getElementById("lang-ko");
-      var langCloseButton = document.getElementById("lang-close");
+                // Get the close button for the popup
+                const closeBtn = popupTarget.querySelector(".close-btn");
 
-      // Get content elements
-      var contentEn = document.querySelectorAll("#content [lang='en']");
-      var contentKo = document.querySelectorAll("#content [lang='ko']");
+                // Add event listener to the popup link
+                popupLink.addEventListener("click", function (event) {
+                    event.preventDefault();
 
-      // Set default language (English)
-      var currentLang = "en";
-      for (var i = 0; i < contentEn.length; i++) {
-        contentEn[i].style.display = "block";
-      }
+                    // Show the target popup
+                    popupTarget.style.display = "flex";
+                });
 
-      // Show language switch dialog if no language preference is set
-      if (!localStorage.getItem("language")) {
-        langDialog.style.display = "block";
-      }
+                // Add event listener to the close button
+                closeBtn.addEventListener("click", function () {
+                    // Hide the target popup
+                    popupTarget.style.display = "none";
+                });
+            });
+        </script>
+    </body>
+    <footer>
+        <p
+            style="
+                font-family: 'SamsungSharpSans-regular', 'SamsungOne-Regular';
+            ">
+            &copy; 2023 <span class="textlogo">CleanThings</span>
+        </p>
+        <p
+            style="
+                font-family: 'SamsungSharpSans-regular', 'SamsungOne-Regular';
+                color: #bdbdbd;
+            ">
+            Powered by
+            <a
+                href="https://oneuiweb.dev/#/"
+                style="
+                    font-family: 'SamsungSharpSans-Bold', 'SamsungOne-Bold';
+                    color: #bdbdbd;
+                "
+                target="_blank"
+                rel="noreferrer noopener"
+                >One UI Web</a
+            >
+        </p>
+        <small
+            >动态网自由门 天安門 天安门 法輪功 李洪志 Free Tibet 六四天安門事件
+            The Tiananmen Square protests of 1989 天安門大屠殺 The Tiananmen
+            Square Massacre 反右派鬥爭 The Anti-Rightist Struggle 大躍進政策 The
+            Great Leap Forward 文化大革命 The Great Proletarian Cultural
+            Revolution 人權 Human Rights 民運 Democratization 自由 Freedom 獨立
+            Independence 多黨制 Multi-party system 台灣 臺灣 Taiwan Formosa
+            中華民國 Republic of China 西藏 土伯特 唐古特 Tibet 達賴喇嘛 Dalai
+            Lama 法輪功 Falun Dafa 新疆維吾爾自治區 The Xinjiang Uyghur
+            Autonomous Region 諾貝爾和平獎 Nobel Peace Prize 劉暁波 Liu Xiaobo
+            民主 言論 思想 反共 反革命 抗議 運動 騷亂 暴亂 騷擾 擾亂 抗暴 平反
+            維權 示威游行 李洪志 法輪大法 大法弟子 強制斷種 強制堕胎 民族淨化
+            人體實驗 肅清 胡耀邦 趙紫陽 魏京生 王丹 還政於民 和平演變 激流中國
+            北京之春 大紀元時報 九評論共産黨 獨裁 專制 壓制 統一 監視 鎮壓 迫害
+            侵略 掠奪 破壞 拷問 屠殺 活摘器官 誘拐 買賣人口 遊進 走私 毒品 賣淫
+            春畫 賭博 六合彩 天安門 天安门 法輪功 李洪志 Winnie the Pooh
+            劉曉波动态网自由门</small
+        >
+        <script>
+            //languageswitchin
+            // Get dialog element
+            var langDialog = document.getElementById("lang-dialog");
 
-      // Add event listeners to language switch buttons
-      langEnButton.addEventListener("click", function () {
-        localStorage.setItem("language", "en");
-        for (var i = 0; i < contentEn.length; i++) {
-          contentEn[i].style.display = "block";
-        }
-        for (var i = 0; i < contentKo.length; i++) {
-          contentKo[i].style.display = "none";
-        }
-        langDialog.style.display = "none";
-      });
+            // Get language switch buttons
+            var langEnButton = document.getElementById("lang-en");
+            var langKoButton = document.getElementById("lang-ko");
+            var langCloseButton = document.getElementById("lang-close");
 
-      langKoButton.addEventListener("click", function () {
-        localStorage.setItem("language", "ko");
-        for (var i = 0; i < contentEn.length; i++) {
-          contentEn[i].style.display = "none";
-        }
-        for (var i = 0; i < contentKo.length; i++) {
-          contentKo[i].style.display = "block";
-        }
-        langDialog.style.display = "none";
-      });
+            // Get content elements
+            var contentEn = document.querySelectorAll("#content [lang='en']");
+            var contentKo = document.querySelectorAll("#content [lang='ko']");
 
+            // Set default language (English)
+            var currentLang = "en";
+            for (var i = 0; i < contentEn.length; i++) {
+                contentEn[i].style.display = "block";
+            }
 
-langCloseButton.addEventListener('click', function() {
-  langDialog.style.display = 'none';
-});
+            // Show language switch dialog if no language preference is set
+            if (!localStorage.getItem("language")) {
+                langDialog.style.display = "block";
+            }
 
-// Set content language based on user preference
-if (localStorage.getItem('language') === 'ko') {
-  currentLang = 'ko';
-  contentEn.style.display = 'none';
-  contentKo.style.display = 'block';
-}
-    </script>
-</footer></html>
+            // Add event listeners to language switch buttons
+            langEnButton.addEventListener("click", function () {
+                localStorage.setItem("language", "en");
+                for (var i = 0; i < contentEn.length; i++) {
+                    contentEn[i].style.display = "block";
+                }
+                for (var i = 0; i < contentKo.length; i++) {
+                    contentKo[i].style.display = "none";
+                }
+                langDialog.style.display = "none";
+            });
+
+            langKoButton.addEventListener("click", function () {
+                localStorage.setItem("language", "ko");
+                for (var i = 0; i < contentEn.length; i++) {
+                    contentEn[i].style.display = "none";
+                }
+                for (var i = 0; i < contentKo.length; i++) {
+                    contentKo[i].style.display = "block";
+                }
+                langDialog.style.display = "none";
+            });
+
+            langCloseButton.addEventListener("click", function () {
+                langDialog.style.display = "none";
+            });
+
+            // Set content language based on user preference
+            if (localStorage.getItem("language") === "ko") {
+                currentLang = "ko";
+                contentEn.style.display = "none";
+                contentKo.style.display = "block";
+            }
+        </script>
+    </footer>
+</html>
