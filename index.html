@@ -310,14 +310,16 @@
                 align-items: center;
                 padding-right: 12px;
             }
-
             .dropbtn {
                 border: none;
                 cursor: pointer;
-                background-color: #f2f2f2;
+                background-color: transparent;
                 margin: 0px 12px;
+                transition: background-color 0.3s ease-in-out;
             }
-
+            .dropbtn:hover{
+                background-color: rgba(0, 0, 0, 0.1);
+            }
             .dropdown-content {
                 display: none;
                 position: absolute;
