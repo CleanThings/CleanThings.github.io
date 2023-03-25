@@ -1,16 +1,25 @@
 {
-    "name": "CleanThings",
-    "short_name": "CleanThings",
-    "icons": [
-        {
-            "src": "icons/Clean_Things_logo.svg",
-            "sizes": "48x48 72x72 96x96 128x128 192x192 256x256 512x512",
-            "type": "image/svg+xml",
-            "purpose": "any"
-        }
-    ],
-    "start_url": "/",
-    "background_color": "#f2f2f2",
-    "theme_color": "#f2f2f2",
-    "display": "standalone"
+  "name": "CleanThings",
+  "short_name": "CleanThings",
+  "icons": [
+    {
+      "src": "icons/Clean_Things_logo.svg",
+      "sizes": "48x48 72x72 96x96 128x128 192x192 256x256 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+    {
+      "src": "icons/Clean_Things_logo(1024x1024).png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#f2f2f2",
+  "theme_color": "#f2f2f2",
+  "display": "standalone",
+  "lang": "en",
+  "orientation": "any",
+  "description": "Find IoT devices and sensors that free from any Chinese backdoor or hacking threats. Don't let Chinese government and hacker steal your information from your devices. Do left only the CleanThings in your smart home."
 }
