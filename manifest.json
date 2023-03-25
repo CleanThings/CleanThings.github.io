@@ -1,0 +1,16 @@
+{
+    "name": "CleanThings",
+    "short_name": "CleanThings",
+    "icons": [
+        {
+            "src": "icons/Clean_Things_logo.svg",
+            "sizes": "48x48 72x72 96x96 128x128 192x192 256x256 512x512",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "#f2f2f2",
+    "theme_color": "#f2f2f2",
+    "display": "standalone"
+}
