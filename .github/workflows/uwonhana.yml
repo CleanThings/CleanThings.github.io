@@ -1,0 +1,33 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# This workflow will install Deno then run `deno lint` and `deno test`.
+# For more information see: https://github.com/denoland/setup-deno
+name: Copy assetlinks.json to .well-known directory
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Copy assetlinks.json to .well-known directory
+        env:
+          ASSETLINKS_JSON: ${{ secrets.ASSETLINKS_JSON }}
+        run: |
+          mkdir -p .well-known
+          echo "${ASSETLINKS_JSON}" > .well-known/assetlinks.json
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update assetlinks.json"
+          commit_options: "--no-verify"
