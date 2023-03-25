@@ -21,5 +21,7 @@
   "display": "standalone",
   "lang": "en",
   "orientation": "any",
-  "description": "Find IoT devices and sensors that are free from any Chinese backdoor or hacking threats."
+  "description": "Find IoT devices and sensors that are free from any Chinese backdoor or hacking threats.",
+  "dir": "auto",
+  "scope": "https://cleanthings.github.io/"
 }
