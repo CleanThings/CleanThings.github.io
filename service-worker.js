@@ -88,3 +88,37 @@ self.addEventListener("activate", function (event) {
         })
     );
 });
+
+// Background Sync
+self.addEventListener("sync", function(event) {
+  if (event.tag === "sync-data") {
+    event.waitUntil(syncData());
+  }
+});
+
+function syncData() {
+  return Promise.all([
+    // add your sync tasks here
+  ]);
+}
+
+// Periodic Sync
+self.addEventListener("periodicsync", function(event) {
+  if (event.tag === "sync-data") {
+    event.waitUntil(syncData());
+  }
+});
+
+self.addEventListener("activate", function(event) {
+  if (navigator.serviceWorker.controller) {
+    navigator.serviceWorker.controller.postMessage({ type: "start_periodic_sync" });
+  }
+});
+
+self.addEventListener("message", function(event) {
+  if (event.data.type === "start_periodic_sync") {
+    self.registration.periodicSync.register("sync-data", {
+      minInterval: 24 * 60 * 60 * 1000 // set your interval time here
+    });
+  }
+});
