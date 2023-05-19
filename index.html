@@ -261,7 +261,7 @@
             }
             /* PC */
             /* Set padding on all sides when screen is wider than 600px */
-            @media (min-width: 980px) {
+            @media (min-width: 1352px) {
                 body {
                     width: 1440px;
                     margin: 0 auto;
@@ -408,6 +408,158 @@
                     bottom: 24px;
                 }
             }
+            /* 태블릿 가로 화면일 때 */
+            @media screen and (min-width: 980px) and (max-width: 1352px) {
+                body {
+                    padding : 0px;
+                    margin: 0 auto;
+                    overflow-x:hidden; 
+                }
+            
+                .bubble {
+                    margin: 24px 0px;
+                    padding: 12px 24px;
+                    border-radius: 24px;
+                    background-color: #fefefe;
+                }
+                .nobubble {
+                    margin: 24px 0px;
+                    padding: 12px 24px;
+                }
+                .landing {
+                    background-image: url("images/landing-home.jpg");
+                    background-size: cover;
+                }
+                .landing-clean {
+                    background-image: url("images/landing-clean.jpg");
+                    background-size: cover;
+                }
+                .landing-specious {
+                    background-image: url("images/landing-specious.jpg");
+                    background-size: cover;
+                }
+                .landing-infected {
+                    background-image: url("images/landing-infected.jpg");
+                    background-size: cover;
+                }
+                .bubble-clean {
+                    background-image: url("images/bubble-clean.jpg");
+                    background-size: cover;
+                    width: 448px;
+                }
+                .bubble-specious {
+                    background-image: url("images/bubble-specious.jpg");
+                    background-size: cover;
+                    width: 448px;
+                }
+                .bubble-infected {
+                    background-image: url("images/bubble-infected.jpg");
+                    background-size: cover;
+                    width: 448px;
+                }
+                .responsive-bubble {
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                }
+                .responsive-bubble-singleline {
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                }
+                .bubble-clean {
+                    margin-right: 12px;
+                }
+                .bubble-specious {
+                    margin: 0px 12px;
+                }
+                .bubble-infected {
+                    margin-left: 12px;
+                }
+
+                #bubble-textbox-2column-left {
+                    width: 684px;
+                    margin-right: 12px;
+                }
+                #bubble-textbox-2column-right {
+                    width: 684px;
+                    margin-left: 12px;
+                }
+                .bubble-badge{
+                    text-align: right;
+                }
+                .bubble-badge > img{
+                    margin-left:24px;
+                }
+                #leaf {
+                    position: absolute;
+                    z-index: -1;
+                    top: 198px;
+                    right: -240px;
+                    opacity: 0.5;
+                    overflow: auto;
+                }
+                #water {
+                    position: absolute;
+                    z-index: -2;
+                    top: 736px;
+                    left: -240px;
+                    opacity: 0.5;
+                    width: 720px;
+                }
+                #certified {
+                    width: 480px;
+                    padding: 24px;
+                }
+                .bubble-lang{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    align-items: normal;
+                    align-content: normal;
+                }
+                .bubble-lang-items:nth-child(1){
+                      display: block;
+                      flex-grow: 0;
+                      flex-shrink: 1;
+                      flex-basis: 50%;
+                      align-self: auto;
+                      order: 0;
+                }
+                .bubble-lang-items:nth-child(2){
+                      display: block;
+                      flex-grow: 0;
+                      flex-shrink: 1;
+                      flex-basis: 46%;
+                      align-self: auto;
+                      order: 0;
+                }
+
+                .bubble-lang-items:nth-child(3) {
+                  display: block;
+                  flex-grow: 0;
+                  flex-shrink: 1;
+                  flex-basis: 4%;
+                  align-self: auto;
+                  order: 0;
+                }
+                
+                
+                #welcome-badge-clean{
+                    position: absolute; 
+                    bottom: 24px;
+                }
+                #welcome-badge-specious{
+                    position: absolute; 
+                    bottom: 24px;
+                }
+                #welcome-badge-infected{
+                    position: absolute; 
+                    bottom: 24px;
+                }
+            }
+                
             /* 태블릿일 때 */
             @media screen and (min-width: 721px) and (max-width: 980px) { 
                 body {
