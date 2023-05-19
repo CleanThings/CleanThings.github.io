@@ -153,13 +153,115 @@
             .GNB {
                 padding: 4px;
             }
+            
+            /* 
+ * 1400의 3콜룸
+
+1400 - 48 - 24+24 = 1344
+-> 1컬럼당 448
+        */
+            nav {
+                display: flex;
+                margin: 6px;
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: row;
+                width: auto;
+                background-color: transparent;
+            }
+            nav.sticky {
+                z-index: 2;
+            }
+
+            nav ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            nav li {
+                display: inline-block;
+                margin-right: 24px;
+            }
+
+            nav a {
+                color: #363636;
+                font-weight: bold;
+                font-size: 16px;
+            }
+
+            .menu {
+                display: flex;
+                align-items: center;
+                padding-right: 12px;
+            }
+            .dropbtn {
+                border: none;
+                cursor: pointer;
+                background-color: transparent;
+                margin: 0px 12px;
+                transition: background-color 0.3s ease-in-out;
+            }
+            .dropbtn:hover{
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                z-index: 2;
+                background-color: #fefefe;
+                top: 24px;
+                right: 0;
+                left: auto;
+                overflow-y: auto;
+                width: 200px;
+                border-radius: 24px;
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+                padding: 0px 0px;
+                opacity: 0;
+                transition: width 0.3s ease-out, height 0.3s ease-out,
+                    opacity 0.3s ease-out;
+            }
+
+            .dropdown-content a {
+                display: inline-flex;
+                position: relative;
+                padding: 18px 24px;
+                text-decoration: none;
+                color: #363636;
+            }
+
+            .dropdown-content a:hover {
+                padding: 12 24px;
+                width: 100%;
+                background-color: #e2e2e2;
+                content: "";
+                opacity: 0.5;
+                transition: width 0.3s ease-out, height 0.3s ease-out,
+                    opacity 0.3s ease-out;
+            }
+
+            .dropdown-content a:hover::after {
+                width: 200%;
+                height: 200%;
+                opacity: 1;
+            }
+
+            .menu:hover .dropdown-content {
+                display: block;
+                opacity: 1;
+            }
+            /* 4k 모니터에서 */
             @media (min-width: 1352px) {
                 body{
                     overflow-x:hidden; overflow-y:auto;
                 }
             }
+            /* PC */
             /* Set padding on all sides when screen is wider than 600px */
-            @media (min-width: 712px) {
+            @media (min-width: 980px) {
                 body {
                     width: 1440px;
                     margin: 0 auto;
@@ -293,111 +395,195 @@
                   align-self: auto;
                   order: 0;
                 }
-                
-                
+                #welcome-badge-clean{
+                    position: absolute; 
+                    bottom: 24px;
+                }
+                #welcome-badge-specious{
+                    position: absolute; 
+                    bottom: 24px;
+                }
+                #welcome-badge-infected{
+                    position: absolute; 
+                    bottom: 24px;
+                }
             }
-            /* 
- * 1400의 3콜룸
-
-1400 - 48 - 24+24 = 1344
--> 1컬럼당 448
-        */
-            nav {
-                display: flex;
-                margin: 6px;
-                align-items: center;
-                justify-content: space-between;
-            }
-
-            nav.sticky {
-                z-index: 2;
-            }
-
-            nav ul {
-                margin: 0;
-                padding: 0;
-                list-style: none;
-                display: flex;
-                justify-content: space-between;
-            }
-
-            nav li {
-                display: inline-block;
-                margin-right: 24px;
-            }
-
-            nav a {
-                color: #363636;
-                font-weight: bold;
-                font-size: 16px;
-            }
-
-            .menu {
-                display: flex;
-                align-items: center;
-                padding-right: 12px;
-            }
-            .dropbtn {
-                border: none;
-                cursor: pointer;
-                background-color: transparent;
-                margin: 0px 12px;
-                transition: background-color 0.3s ease-in-out;
-            }
-            .dropbtn:hover{
-                background-color: rgba(0, 0, 0, 0.1);
-            }
-            .dropdown-content {
-                display: none;
-                position: absolute;
-                z-index: 2;
-                background-color: #fefefe;
-                top: 24px;
-                right: 0;
-                left: auto;
-                overflow-y: auto;
-                width: 200px;
-                border-radius: 24px;
-                box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-                padding: 0px 0px;
-                opacity: 0;
-                transition: width 0.3s ease-out, height 0.3s ease-out,
-                    opacity 0.3s ease-out;
-            }
-
-            .dropdown-content a {
-                display: inline-flex;
-                position: relative;
-                padding: 18px 24px;
-                text-decoration: none;
-                color: #363636;
-            }
-
-            .dropdown-content a:hover {
-                padding: 12 24px;
-                width: 100%;
-                background-color: #e2e2e2;
-                content: "";
-                opacity: 0.5;
-                transition: width 0.3s ease-out, height 0.3s ease-out,
-                    opacity 0.3s ease-out;
-            }
-
-            .dropdown-content a:hover::after {
-                width: 200%;
-                height: 200%;
-                opacity: 1;
-            }
-
-            .menu:hover .dropdown-content {
-                display: block;
-                opacity: 1;
-            }
-
-            /* Set padding and font size for smaller screens */
-            @media (max-width: 712px) {
+            /* 태블릿일 때 */
+            @media screen and (min-width: 721px) and (max-width: 980px) { 
                 body {
-                    padding: 0 0%;
+                    padding : 0px;
+                    margin: 0 auto;
+                    overflow-x:hidden; 
+                }
+
+                .bubble {
+                    margin: 24px 0px;
+                    padding: 12px 24px;
+                    border-radius: 24px;
+                    background-color: #fefefe;
+                }
+                .nobubble {
+                    margin: 24px 0px;
+                    padding: 12px 24px;
+                }
+                .landing {
+                    background-image: url("images/landing-home.jpg");
+                    background-size: cover;
+                }
+                .landing-clean {
+                    background-image: url("images/landing-clean.jpg");
+                    background-size: cover;
+                }
+                .landing-specious {
+                    background-image: url("images/landing-specious.jpg");
+                    background-size: cover;
+                }
+                .landing-infected {
+                    background-image: url("images/landing-infected.jpg");
+                    background-size: cover;
+                }
+                .bubble-clean {
+                    background-image: url("images/bubble-clean.jpg");
+                    background-size: cover;
+                    width: 448px;
+                }
+                .bubble-specious {
+                    background-image: url("images/bubble-specious.jpg");
+                    background-size: cover;
+                    width: 448px;
+                }
+                .bubble-infected {
+                    background-image: url("images/bubble-infected.jpg");
+                    background-size: cover;
+                    width: 448px;
+                }
+                .responsive-bubble {
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                }
+                .responsive-bubble-singleline {
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                }
+                .bubble-clean {
+                    margin-right: 12px;
+                }
+                .bubble-specious {
+                    margin: 0px 12px;
+                }
+                .bubble-infected {
+                    margin-left: 12px;
+                }
+
+                #bubble-textbox-2column-left {
+                    width: 684px;
+                    margin-right: 12px;
+                }
+                #bubble-textbox-2column-right {
+                    width: 684px;
+                    margin-left: 12px;
+                }
+                .bubble-badge{
+                    text-align: right;
+                }
+                .bubble-badge > img{
+                    margin-left:24px;
+                }
+                #leaf {
+                    position: absolute;
+                    z-index: -1;
+                    top:256px;
+                    right: -240px;
+                    opacity: 0.5;
+                    overflow: auto;
+                }
+                #water {
+                    position: absolute;
+                    z-index: -2;
+                    top: 800px;
+                    left: -356px;
+                    opacity: 0.5;
+                    width: 640px;
+                }
+                #certified {
+                    width: 100%;
+                    padding: 24px;
+                }
+                .bubble-lang{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    align-items: normal;
+                    align-content: normal;
+                }
+                .bubble-lang-items:nth-child(1){
+                      display: block;
+                      flex-grow: 0;
+                      flex-shrink: 1;
+                      flex-basis: 50%;
+                      align-self: auto;
+                      order: 0;
+                }
+                .bubble-lang-items:nth-child(2){
+                      display: block;
+                      flex-grow: 0;
+                      flex-shrink: 1;
+                      flex-basis: 46%;
+                      align-self: auto;
+                      order: 0;
+                }
+
+                .bubble-lang-items:nth-child(3) {
+                  display: block;
+                  flex-grow: 0;
+                  flex-shrink: 1;
+                  flex-basis: 4%;
+                  align-self: auto;
+                  order: 0;
+                }
+                
+                #welcome-badge-clean{
+                    width : 100%;
+                    position: inline-block;
+                    height : 156px;
+                    vertical-align: bottom;
+                }
+                #welcome-badge-specious{
+                    width : 100%;
+                    position: inline-block;
+                    height : 156px;
+                    vertical-align: bottom;
+                }
+                #welcome-badge-infected{
+                    width : 100%;
+                    position: inline-block;
+                    height : 156px;
+                    vertical-align: bottom;
+                }
+            }
+            
+            /* 모바일보다 클 때 */
+            @media screen and (min-width: 721px) {
+                .table td:before {
+                    display: none;
+                }
+                .table td a {
+                    text-decoration: none;
+                }
+                .table th,
+                .table td {
+                    display: table-cell;
+                    padding: 12px;
+                }
+            }
+            /* 모바일 */
+            /* Set padding and font size for smaller screens */
+            @media (max-width: 721px) {
+                body {
+                    padding: 0px;
                     font-size: 14px;
                 }
 
@@ -485,9 +671,47 @@
                 th:first-child {
                     background: #000000;
                 }
-                
+                #welcome-badge-clean{
+                    position: absolute; 
+                    bottom: 24px;
+                }
+                #welcome-badge-specious{
+                    position: absolute; 
+                    bottom: 24px;
+                }
+                #welcome-badge-infected{
+                    position: absolute; 
+                    bottom: 24px;
+                }
             }
-
+            /* Galaxy Fold */
+            @media (max-width: 281px){
+                
+                .container h1 {
+                    font-size: 16px;
+                    opacity: 0;
+                }
+                #welcome-badge-clean{
+                    position: relative;
+                    width : 100%;
+                    min-height: 150px;
+                }
+                #welcome-badge-specious{
+                    position: relative;
+                    width : 100%;
+                    min-height: 150px;
+                }
+                #welcome-badge-infected{
+                    position: relative;
+                    width : 100%;
+                    min-height: 150px;
+                }
+                .bubble-textbox > img{
+                    width : 90%;
+                    margin : 0 auto;   
+                    margin : 0 auto;   
+                }
+            }
             /* Header styles */
             header {
                 background-color: #f2f2f2;
@@ -609,20 +833,7 @@
             .table td {
                 padding: 12px 6px;
             }
-
-            @media screen and (min-width: 720px) {
-                .table td:before {
-                    display: none;
-                }
-                .table td a {
-                    text-decoration: none;
-                }
-                .table th,
-                .table td {
-                    display: table-cell;
-                    padding: 12px;
-                }
-            }
+            
             /* Style the footer */
             footer {
                 padding: 12px;
@@ -1012,13 +1223,13 @@
                         data-tab="clean-things">
                         <h1 lang="en">Shout out<br />CleanThings</h1>
                         <h1 lang="ko" style="display: none">
-                            CleanThings를<br />고르세요
+                            CleanThings를 고르세요
                         </h1>
                         <img
                             src="images/Clean_Things_badge(white).svg"
                             height="64"
                             alt="A CleanThings on IoT brand and product identified to be free from Chinese backdoors or hacking threats."
-                            style="position: absolute; bottom: 24px" />
+                            id="welcome-badge-clean"/>
                     </section>
                     <section
                         class="bubble bubble-specious tabbutton"
@@ -1026,13 +1237,13 @@
                         data-tab="specious-things">
                         <h1 lang="en">Watch out<br />SpeciousThings</h1>
                         <h1 lang="ko" style="display: none">
-                            SpeciousThings를<br />조심히 고민하세요
+                            SpeciousThings를 잘 보세요
                         </h1>
                         <img
                             src="images/Specious_Things_badge(white).svg"
                             height="64"
                             alt="A SpeciousThings on IoT brand and product identified as being of concern for security threats in China."
-                            style="position: absolute; bottom: 24px" />
+                            id="welcome-badge-specious" />
                     </section>
                     <section
                         class="bubble bubble-infected tabbutton"
@@ -1040,13 +1251,13 @@
                         data-tab="infected-things">
                         <h1 lang="en">Throw out<br />InfectedThings</h1>
                         <h1 lang="ko" style="display: none">
-                            InfectedThings를<br />버리세요
+                            InfectedThings를 버리세요
                         </h1>
                         <img
                             src="images/Infected_Things_badge(white).svg"
                             height="64"
                             alt="An InfectedThings on IoT brand and product identified as having threats from Chinese backdoors or hacking have been certified."
-                            style="position: absolute; bottom: 24px" />
+                            id="welcome-badge-infected" />
                     </section>
                 </div>
                 <section></section>
@@ -2982,7 +3193,7 @@
                                     'SamsungSharpSans-Bold', 'SamsungOne-800',
                                     'Noto Sans KR', sans-serif;
                             "
-                            >🔥 꼭 들어 보세요 🔥</a
+                            >🎶 꼭 들어 보세요 🎶</a
                         ></span
                     ><br /><br />
                     <br />
