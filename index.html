@@ -796,23 +796,6 @@
             }
         }
 
-        /* 모바일보다 클 때 */
-        @media screen and (min-width: 721px) {
-            .table td:before {
-                display: none;
-            }
-
-            .table td a {
-                text-decoration: none;
-            }
-
-            .table th,
-            .table td {
-                display: table-cell;
-                padding: 12px;
-            }
-        }
-
         /* 모바일 */
         /* Set padding and font size for smaller screens */
         @media (max-width: 721px) {
@@ -917,10 +900,6 @@
                 margin: 36px 0px;
             }
 
-            th:first-child {
-                background: #000000;
-            }
-
             #welcome-badge-clean {
                 position: absolute;
                 bottom: 24px;
@@ -936,7 +915,7 @@
                 bottom: 24px;
             }
         }
-
+        
         /* Galaxy Fold */
         @media (max-width: 281px) {
 
@@ -1057,6 +1036,7 @@
         /*.table tr:nth-child(odd):not(:first-child) {*/
         /*    background-color: #ebf3f9;*/
         /*}*/
+        
 
         .table th {
             display: none;
@@ -1092,6 +1072,23 @@
         .table th,
         .table td {
             padding: 12px 6px;
+        }
+        
+        /* 모바일보다 클 때 */
+        @media screen and (min-width: 721px) {
+            .table td:before {
+                display: none;
+            }
+
+            .table td a {
+                text-decoration: none;
+            }
+
+            .table th,
+            .table td {
+                display: table-cell;
+                padding: 12px;
+            }
         }
 
         .cleanthings-maker-btn {
