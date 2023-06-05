@@ -3978,6 +3978,7 @@
     </div>
     
     <script src="deviceButtons.js"></script>
+    <script src="languageswitch.js"></script>
 
     <script>
         const tabButtons = document.querySelectorAll(".tabbutton");
@@ -4162,8 +4163,13 @@ $(document).ready(function(){
     $("section.bubble table tbody tr").show();
   });
 });
-    </script>
     
+
+        // Call service-worker.js for a progressive web application
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js');
+        }
+    </script>
 </body>
 <footer style="margin-bottom:96px;">
     <p style="
@@ -4181,70 +4187,6 @@ $(document).ready(function(){
                     color: #bdbdbd;
                 " target="_blank" rel="noreferrer noopener">One UI Web</a>
     </p>
-    <script>
-        //languageswitchin
-        // Get dialog element
-        var langDialog = document.getElementById("lang-dialog");
-
-        // Get language switch buttons
-        var langEnButton = document.getElementById("lang-en");
-        var langKoButton = document.getElementById("lang-ko");
-        var langCloseButton = document.getElementById("lang-close");
-
-        // Get content elements
-        var contentEn = document.querySelectorAll("#content [lang='en']");
-        var contentKo = document.querySelectorAll("#content [lang='ko']");
-
-        // Set default language (English)
-        var currentLang = "en";
-        for (var i = 0; i < contentEn.length; i++) {
-            contentEn[i].style.display = "block";
-        }
-
-        // Show language switch dialog if no language preference is set
-        if (!localStorage.getItem("language")) {
-            langDialog.style.display = "block";
-        }
-
-        // Add event listeners to language switch buttons
-        langEnButton.addEventListener("click", function() {
-            localStorage.setItem("language", "en");
-            for (var i = 0; i < contentEn.length; i++) {
-                contentEn[i].style.display = "block";
-            }
-            for (var i = 0; i < contentKo.length; i++) {
-                contentKo[i].style.display = "none";
-            }
-            langDialog.style.display = "none";
-        });
-
-        langKoButton.addEventListener("click", function() {
-            localStorage.setItem("language", "ko");
-            for (var i = 0; i < contentEn.length; i++) {
-                contentEn[i].style.display = "none";
-            }
-            for (var i = 0; i < contentKo.length; i++) {
-                contentKo[i].style.display = "block";
-            }
-            langDialog.style.display = "none";
-        });
-
-        langCloseButton.addEventListener("click", function() {
-            langDialog.style.display = "none";
-        });
-
-        // Set content language based on user preference
-        if (localStorage.getItem("language") === "ko") {
-            currentLang = "ko";
-            contentEn.style.display = "none";
-            contentKo.style.display = "block";
-        }
-
-
-        // Call service-worker.js for a progressive web application
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js');
-        }
-    </script>
+    
 </footer>
 </html>
