@@ -1721,19 +1721,55 @@
                     <button class="searchKeyords RFButton">#RF</button>
                 </div>
                 <div>
-                    <h3 style="margin-left:12px;"><span lang="en">Devices</span><span lang="ko" style="display: none">디바이스</span></h3>
+                    <h3 style="margin-left:12px;"><span lang="en">Appliances</span><span lang="ko" style="display: none">가전</span></h3>
                     <button class="searchKeyords hubButton">#Hub</button>
                     <button class="searchKeyords airDresserButton">#Air Dresser</button>
-                    <button class="searchKeyords airQualityButton">#Air Quality sensor</button>
                     <button class="searchKeyords airPurifierButton">#Air Purifier</button>
-                    <button class="searchKeyords arrivalButton">#Arrival sensor</button>
                     <button class="searchKeyords AVButton">#AV</button>
                     <button class="searchKeyords BESPOKEButton">#BESPOKE</button>
-                    <button class="searchKeyords buttonButton">#Button</button>
-                    <button class="searchKeyords cameraButton">#Camera</button>
                     <button class="searchKeyords ceilinglightButton">#Ceiling Light</button>
                     <button class="searchKeyords cooktopButton">#Cooktop</button>
                     <button class="searchKeyords doorlockButton">#Door lock</button>
+                    <button class="searchKeyords dehumidifierButton">#Dehumidifier</button>
+                    <button class="searchKeyords dishwasherButton">#Dishwasher</button>
+                    <button class="searchKeyords hoodButton">#Hood</button>
+                    <button class="searchKeyords laundryButton">#Laundry</button>
+                    <button class="searchKeyords ovenButton">#Oven</button>
+                    <button class="searchKeyords rangeButton">#Range</button>
+                    <button class="searchKeyords riceCookerButton">#Rice Cooker</button>
+                    <button class="searchKeyords refrigeratorButton">#Fridge</button>
+                    <button class="searchKeyords robotVacuumButton">#Robot Vacuum</button>
+                    <button class="searchKeyords shoeDresserButton">#Shoe Dresser</button>
+                    <button class="searchKeyords smartSpeakerButton">#Smart Speaker</button>
+                    <button class="searchKeyords wirelessChargerButton">#Wireless charger</button>
+                    <button class="searchKeyords vacuumButton">#Vacuum</button>
+                    <button class="searchKeyords tagButton">#SmartTag</button>
+                </div>
+                <div>
+                    <h3 style="margin-left:12px;"><span lang="en">Devices and Sensors</span><span lang="ko" style="display: none">디바이스와 센서</span></h3>
+                    <button class="searchKeyords airQualityButton">#Air Quality sensor</button>
+                    <button class="searchKeyords arrivalButton">#Arrival sensor</button>
+                    <button class="searchKeyords buttonButton">#Button</button>
+                    <button class="searchKeyords cameraButton">#Camera</button>
+                    <button class="searchKeyords doorAndWindowSensorButton">#Door and Window sensor</button>
+                    <button class="searchKeyords energymeterButton">#Energymeter</button>
+                    <button class="searchKeyords humiditySensorButton">#Humidity sensor</button>
+                    <button class="searchKeyords illuminationSensorButton">#Illumination sensor</button>
+                    <button class="searchKeyords lightButton">#Light</button>
+                    <button class="searchKeyords motionSensorButton">#Motion sensor</button>
+                    <button class="searchKeyords outletButton">#Outlet</button>
+                    <button class="searchKeyords presenceSensorButton">#Presence sensor</button>
+                    <button class="searchKeyords remoteButton">#Remote</button>
+                    <button class="searchKeyords smartPlugButton">#Smart plug</button>
+                    <button class="searchKeyords soundSensorButton">#Sound Sensor</button>
+                    <button class="searchKeyords switchButton">#Switch</button>
+                    <button class="searchKeyords temperatureSensorButton">#Temperature sensor</button>
+                    <button class="searchKeyords thermostatButton">#Thermostat</button>
+                    <button class="searchKeyords vibrationSensorButton">#Vibration sensor</button>
+                    <button class="searchKeyords visionSensorButton">#Vision sensor</button>
+                    <button class="searchKeyords waterLeakSensorButton">#Water leak Sensor</button>
+                    <button class="searchKeyords windowTreatmentButton">#Window treatment</button>
+
                 </div>
             </div>
             <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
@@ -2708,7 +2744,7 @@
                         </tr>
                         <tr>
                             <td>Door Sensor (DSM-300-ZB)</td>
-                            <td>Door sensor</td>
+                            <td>Door and Window sensor</td>
                             <td>Zigbee (Local)</td>
                             <td>South Korea</td>
                             <td>03/19/2023</td>
@@ -3937,6 +3973,9 @@
             <span class="menu-text" id="warning">Infected</span>
         </button>
     </div>
+    
+    <script src="deviceButtons.js"></script>
+
     <script>
         const tabButtons = document.querySelectorAll(".tabbutton");
         const tabContents = document.querySelectorAll(".tabcontent");
@@ -4088,301 +4127,6 @@ $(document).ready(function(){
     $(".searchKeyordsBox").slideUp(300); // div 닫기, 애니메이션 적용 가능
   });
     
-  // 검색어 추가 기능 버튼 클릭 시 검색창에 검색어 추가
-  $(".zigbeeButton").on("click", function() {
-    var keyword = "Zigbee";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
-  $(".zwaveButton").on("click", function() {
-    var keyword = "Z-Wave";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
-  $(".matterButton").on("click", function() {
-    var keyword = "Matter";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
-  $(".threadButton").on("click", function() {
-    var keyword = "Thread";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
-  $(".wifiButton").on("click", function() {
-    var keyword = "Wi-Fi";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
-  $(".lanButton").on("click", function() {
-    var keyword = "LAN";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-    
-  $(".RS-485Button").on("click", function() {
-    var keyword = "RS-485";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-    
-  $(".galaxyfindnetworksButton").on("click", function() {
-    var keyword = "Galaxy Find Networks";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
-  $(".RFButton").on("click", function() {
-    var keyword = "RF";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
-  $(".airQualityButton").on("click", function() {
-    var keyword = "Air Quality sensor";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
-  $(".airDresserButton").on("click", function() {
-    var keyword = "Air Dresser";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-    
-  $(".airPurifierButton").on("click", function() {
-    var keyword = "Air Purifier";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-    
-  $(".arrivalButton").on("click", function() {
-    var keyword = "Arrival sensor";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
-  $(".AVButton").on("click", function() {
-    var keyword = "AV";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
-  $(".BESPOKEButton").on("click", function() {
-    var keyword = "BESPOKE";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
-  $(".buttonButton").on("click", function() {
-    var keyword = "Button";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
-  $(".cameraButton").on("click", function() {
-    var keyword = "Camera";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
-  $(".ceilinglightButton").on("click", function() {
-    var keyword = "Ceiling Light";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
-  $(".cooktopButton").on("click", function() {
-    var keyword = "Cooktop";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-    
-  $(".doorlockButton").on("click", function() {
-    var keyword = "Door lock";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
-  $(".hubButton").on("click", function() {
-    var keyword = "Hub";
-    var inputValue = $(".myInput").val().trim();
-    
-    if (inputValue === "") {
-      $(".myInput").val("#" + keyword + " ");
-    } else if (inputValue === "#") {
-      $(".myInput").val(inputValue + keyword + " ");
-    } else {
-      $(".myInput").val(inputValue + " #" + keyword + " ");
-    }
-    $(".myInput").trigger("keyup");
-  });
-
   // x 버튼 클릭 시 검색창 내용 지우기
   $(".clearButton").on("click", function() {
     $(".myInput").val("");
@@ -4391,6 +4135,7 @@ $(document).ready(function(){
   });
 });
     </script>
+    
 </body>
 <footer style="margin-bottom:96px;">
     <p style="
