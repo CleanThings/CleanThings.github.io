@@ -4093,7 +4093,9 @@
             });
         });
 
-        // Search function
+        
+// Search function
+// Search function
         $(document).ready(function() {
             // 검색창 클릭 시 자동으로 # 추가
             $(".myInput").on("click", function() {
@@ -4106,35 +4108,20 @@
                     $(".searchKeyordsBox").slideDown(300);
                 }, 100);
             });
-  // 한글 입력을 위한 변수
-  var composing = false;
+            
+            // 검색창 키 입력 시 추가 기능 동작
+            $(".myInput").on("keyup", function(e) {
+                var value = $(this).val().toLowerCase();
 
-  // 검색창 키 입력 시 추가 기능 동작
-  $(".myInput").on("keydown compositionstart", function(e) {
-    // 한글 입력 시작 시 composing 변수를 true로 설정
-    if (e.type === "compositionstart") {
-      composing = true;
-    }
-  });
-
-  $(".myInput").on("input", function(e) {
-    var value = $(this).val();
-
-    if (!composing && value === "") {
-      // 텍스트가 완전히 지워진 경우
-      $(this).val("");
-    } else if (!composing && !value.startsWith("#") && value.trim() !== "") {
-      // 아무 키 입력 시 # 자동 추가 (알파벳 및 숫자)
-      if (e.originalEvent.data.match(/^[a-zA-Z0-9]$/)) {
-        $(this).val("#" + value);
-      }
-    } else if (composing && !value.startsWith("#") && value.trim() !== "") {
-      // 한글 입력 시 # 자동 추가
-      $(this).val("#" + value);
-    }
-
-              // #으로 검색어 분리하여 동시에 검색
-              var searchTerms = value.split("#").filter(term => term.trim() !== "").map(term => term.trim());
+                if (e.keyCode === 13) {
+                    // Enter 키 누를 시 # 자동 추가
+                    if (!value.endsWith("# ")) {
+                        $(this).val(value + " #");
+                    }
+                    $(".searchKeyordsBox").slideDown(300); // div 열기, 애니메이션 적용 가능
+                }
+                // #으로 검색어 분리하여 동시에 검색
+                var searchTerms = value.split("#").filter(term => term.trim() !== "").map(term => term.trim());
 
                 $("section.bubble").each(function() {
                     var section = $(this);
@@ -4165,24 +4152,7 @@
                     }
                 });
             });
-            
-            $(".myInput").on("keyup compositionend", function(e) {
-                var value = $(this).val();
 
-                if (e.keyCode === 13) {
-                  // Enter 키 누를 시 # 자동 추가
-                  if (!value.endsWith("# ")) {
-                    $(this).val(value + " #");
-                  }
-                  $(".searchKeyordsBox").slideDown(300); // div 열기, 애니메이션 적용 가능
-                }
-
-                // 한글 입력 종료 시 composing 변수를 false로 설정
-                if (e.type === "compositionend") {
-                  composing = false;
-                }
-              });
-            
             // 검색창 텍스트 변경 시, 특정 div 펼치기
             $(".myInput").on("input", function() {
                 var inputValue = $(this).val().trim();
@@ -4208,7 +4178,6 @@
                 $("section.bubble table tbody tr").show();
             });
         });
-
 
         // Call service-worker.js for a progressive web application
         if ('serviceWorker' in navigator) {
