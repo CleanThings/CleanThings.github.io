@@ -1296,6 +1296,7 @@
                 
         .searchKeyordsBox{
             padding:18px;
+            display:none;
         }
         
         /* Style the footer */
@@ -1733,9 +1734,7 @@
                     <button class="searchKeyords ceilinglightButton">#Ceiling Light</button>
                     <button class="searchKeyords cooktopButton">#Cooktop</button>
                     <button class="searchKeyords doorlockButton">#Door lock</button>
-
                 </div>
-                
             </div>
             <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>Aeotec</h1>
@@ -4014,13 +4013,18 @@
         
         // Search function
 $(document).ready(function(){
-  // 검색창 클릭 시 자동으로 # 추가
+   // 검색창 클릭 시 자동으로 # 추가
   $(".myInput").on("click", function() {
     if (!$(this).val().includes("#")) {
       $(this).val("#");
     }
-  });
 
+    // 0.5초 지연 후 div 열기
+    setTimeout(function() {
+      $(".searchKeyordsBox").slideDown(300);
+    }, 100);
+  });
+    
   // 검색창 키 입력 시 추가 기능 동작
   $(".myInput").on("keyup", function(e) {
     var value = $(this).val().toLowerCase();
@@ -4030,6 +4034,7 @@ $(document).ready(function(){
       if (!value.endsWith("# ")) {
         $(this).val(value + " #");
       }
+    $(".searchKeyordsBox").slideDown(300); // div 열기, 애니메이션 적용 가능
     }
     
     // #으로 검색어 분리하여 동시에 검색
@@ -4065,6 +4070,24 @@ $(document).ready(function(){
     });
   });
 
+  // 검색창 텍스트 변경 시, 특정 div 펼치기
+  $(".myInput").on("input", function() {
+    var inputValue = $(this).val().trim();
+
+    // 텍스트가 있는 경우
+    if (inputValue !== "") {
+      $(".searchKeyordsBox").slideDown(300); // div 펼치기, 애니메이션 적용 가능
+    } else {
+      $(".searchKeyordsBox").slideUp(300); // div 닫기, 애니메이션 적용 가능
+    }
+  });
+  
+  // 검색창 초기화 버튼 클릭 시, div 닫기
+  $(".clearButton").on("click", function() {
+    $(".myInput").val(""); // 검색창 텍스트 초기화
+    $(".searchKeyordsBox").slideUp(300); // div 닫기, 애니메이션 적용 가능
+  });
+    
   // 검색어 추가 기능 버튼 클릭 시 검색창에 검색어 추가
   $(".zigbeeButton").on("click", function() {
     var keyword = "Zigbee";
@@ -4072,6 +4095,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4084,6 +4109,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4096,6 +4123,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4108,6 +4137,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4120,6 +4151,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4132,6 +4165,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4144,6 +4179,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4156,6 +4193,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4168,6 +4207,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4180,6 +4221,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4192,6 +4235,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4204,6 +4249,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4216,6 +4263,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4228,6 +4277,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4240,6 +4291,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4252,6 +4305,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4264,6 +4319,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4276,6 +4333,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4288,6 +4347,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4300,6 +4361,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
@@ -4312,6 +4375,8 @@ $(document).ready(function(){
     
     if (inputValue === "") {
       $(".myInput").val("#" + keyword + " ");
+    } else if (inputValue === "#") {
+      $(".myInput").val(inputValue + keyword + " ");
     } else {
       $(".myInput").val(inputValue + " #" + keyword + " ");
     }
