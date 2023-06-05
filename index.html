@@ -24,7 +24,7 @@
     <meta name="twitter:description" content="Find IoT devices and sensors that free from any Chinese backdoor or hacking threats. Don't let Chinese government and hacker steal your information from your devices. Do left only the CleanThings in your smart home.">
     <meta name="twitter:image" content="images/CleanThings_Twittercard.png">
     <meta name="twitter:domain" content="https://cleanthings.github.io/">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         /* General styles */
         * {
@@ -88,10 +88,11 @@
 
         /*fonts used in Korean*/
         @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;900&display=swap");
-        html{
-              scroll-behavior: smooth;
+
+        html {
+            scroll-behavior: smooth;
         }
-        
+
         body {
             font-family: "SamsungOne-bold", "SamsungOneKorean-bold",
                 "Noto Sans KR", sans-serif;
@@ -105,7 +106,7 @@
 
         ::-webkit-scrollbar {
             background-color: #f2f2f2;
-            position:absolute;
+            position: absolute;
             z-index: -1;
             width: 14px;
             height: 14px;
@@ -113,7 +114,7 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            position:absolute;
+            position: absolute;
             z-index: -1;
             outline: none;
             border-radius: 10px;
@@ -123,7 +124,7 @@
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            position:absolute;
+            position: absolute;
             z-index: -1;
             border: 4px solid transparent;
             box-shadow: inset 6px 6px 0 rgba(0, 0, 0, 0.3);
@@ -131,12 +132,12 @@
         }
 
         ::-webkit-scrollbar-track {
-            position:absolute;
+            position: absolute;
             z-index: -1;
             box-shadow: none;
             background-color: transparent;
         }
-        
+
         h1,
         h2,
         h3,
@@ -1143,6 +1144,7 @@
                 padding: 12px;
             }
         }
+
         .cleanthings-maker-btn {
             font-family: "SamsungSharpSans-Bold", "SamsungOne-bold",
                 "SamsungOneKorean-bold", "SamsungOne-800", sans-serif;
@@ -1202,73 +1204,77 @@
             background-color: #6e1205;
             transform: scale(1.02);
         }
+
         /* Search Finder */
-        
+
         .search-container,
-        .myInput{
+        .myInput {
             width: 100%;
         }
-        
-        .form-control{
-            background-color:#fefefe;
+
+        .form-control {
+            background-color: #fefefe;
             padding: 12px 24px;
             border-radius: 24px;
-            border:0px;
+            border: 0px;
             outline: none;
             font-family: "SamsungSharpSans-Bold", "SamsungOne-bold",
                 "SamsungOneKorean-bold", "SamsungOne-800", "Noto Sans KR",
                 sans-serif;
         }
-        
+
         .search-container {
-          position: relative;
-          display: inline-block;
+            position: relative;
+            display: inline-block;
         }
 
         .myInput {
-          padding-right: 48px;
-            
+            padding-right: 48px;
+
         }
 
         .clearButton {
-          position: absolute;
-          top:10px;
-          right: 12px;
-          border-radius: 24px;
-          border:0px;
-          color: #585858;
-          background-color:#fefefe;
-          transition: all 0.3s ease-in-out;
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            border-radius: 24px;
+            border: 0px;
+            color: #585858;
+            background-color: #fefefe;
+            transition: all 0.3s ease-in-out;
         }
-        .clearButton:hover{
+
+        .clearButton:hover {
             transition: all 0.5s ease-out;
             background-color: rgba(0, 0, 0, 0.1);
             opacity: 1;
         }
+
         .clearButton:hover::after {
             width: 200%;
             height: 200%;
             opacity: 1;
         }
-        .clearButton:active{
+
+        .clearButton:active {
             transition: all 0.1s ease-out;
             transform: scale(0.5);
         }
-        
-        .searchKeyords{
-            background-color:#fefefe;
+
+        .searchKeyords {
+            background-color: #fefefe;
             padding: 12px 12px;
-            margin:6px;
+            margin: 6px;
             border-radius: 24px;
-            border:0px;
+            border: 0px;
             outline: none;
             transition: all 0.3s ease-in-out;
             font-family: "SamsungSharpSans-Bold", "SamsungOne-bold",
                 "SamsungOneKorean-bold", "SamsungOne-800", "Noto Sans KR",
-                sans-serif;    
+                sans-serif;
         }
-        
-        .searchKeyords:hover{
+
+        .searchKeyords:hover {
             background-color: rgba(0, 0, 0, 0.1);
             top: 24px;
             right: 0;
@@ -1278,44 +1284,47 @@
             transform: scale(0.9);
             transition: all 0.5s ease-in-out;
         }
-        
+
         .searchKeyords:hover::after {
             width: 200%;
             height: 200%;
             opacity: 1;
             background-color: rgba(159, 159, 159, 1);
         }
-        
-        .searchKeywords:after{
+
+        .searchKeywords:after {
             width: 0;
             height: 0;
             background-color: #363636;
         }
-        
-        .searchKeyords:active{
+
+        .searchKeyords:active {
             transition: all 0.1s ease-out;
             transform: scale(0.8);
         }
-                
-        .searchKeyordsBox{
-            padding:18px;
-            display:none;
+
+        .searchKeyordsBox {
+            padding: 18px;
+            display: none;
         }
-        
+
         /* Style the footer */
         footer {
             padding: 12px;
             color: #363636;
             text-align: center;
         }
+
         footer p {
             margin: 0;
         }
+
         small {
             color: #f2f2f2;
             font-size: 1em;
             line-height: 0px;
         }
+
         .tab {
             position: fixed;
             bottom: 0;
@@ -1327,6 +1336,7 @@
             align-items: center;
             padding: 8px 0;
         }
+
         .tab button {
             display: flex;
             flex-direction: column;
@@ -1433,7 +1443,7 @@
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
             position: fixed;
         }
-        
+
         .popup-body {
             -ms-overflow-style: none;
             /* IE and Edge */
@@ -1498,6 +1508,7 @@
         .lang-btn:hover {
             background-color: rgba(0, 0, 0, 0.1);
         }
+
     </style>
 </head>
 
@@ -1786,7 +1797,7 @@
                         <th>Certified Dates</th>
                     </thead>
                     <tbody>
-                        
+
                     </tbody>
                 </table>
                 <div class="responsive-bubble">
@@ -3976,7 +3987,7 @@
             <span class="menu-text" id="warning">Infected</span>
         </button>
     </div>
-    
+
     <script src="deviceButtons.js"></script>
     <script src="languageswitch.js"></script>
 
@@ -3987,40 +3998,40 @@
         let isScrolling = false;
 
         window.addEventListener("scroll", () => {
-          // Check if scrolling is in progress
-          isScrolling = true;
+            // Check if scrolling is in progress
+            isScrolling = true;
 
-          // Clear the timeout to prevent multiple executions
-          clearTimeout(scrollTimeout);
+            // Clear the timeout to prevent multiple executions
+            clearTimeout(scrollTimeout);
 
-          // Set a timeout to detect when scrolling stops
-          const scrollTimeout = setTimeout(() => {
-            isScrolling = false;
-          }, 100);
+            // Set a timeout to detect when scrolling stops
+            const scrollTimeout = setTimeout(() => {
+                isScrolling = false;
+            }, 100);
         });
 
         tabButtons.forEach((button) => {
-          button.addEventListener("click", () => {
-            // Hide all tab contents
-            tabContents.forEach((content) =>
-              content.classList.remove("active")
-            );
+            button.addEventListener("click", () => {
+                // Hide all tab contents
+                tabContents.forEach((content) =>
+                    content.classList.remove("active")
+                );
 
-            // Show the selected tab content
-            const tab = button.dataset.tab;
-            document.getElementById(tab).classList.add("active");
+                // Show the selected tab content
+                const tab = button.dataset.tab;
+                document.getElementById(tab).classList.add("active");
 
-            // Scroll to the top of the page after a delay
-            const scrollDelay = isScrolling || window.innerHeight + window.pageYOffset >= document.body.offsetHeight ? 200 : 1;
+                // Scroll to the top of the page after a delay
+                const scrollDelay = isScrolling || window.innerHeight + window.pageYOffset >= document.body.offsetHeight ? 200 : 1;
 
-            setTimeout(() => {
-              // Scroll to the top of the page
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-              });
-            }, scrollDelay);
-          });
+                setTimeout(() => {
+                    // Scroll to the top of the page
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+                }, scrollDelay);
+            });
         });
         // Get all elements with class="tabcontent" and hide them
         let tabcontent = document.getElementsByClassName("tabcontent");
@@ -4078,97 +4089,98 @@
                 popupTarget.style.display = "none";
             });
         });
-        
+
         // Search function
-$(document).ready(function(){
-   // 검색창 클릭 시 자동으로 # 추가
-  $(".myInput").on("click", function() {
-    if (!$(this).val().includes("#")) {
-      $(this).val("#");
-    }
+        $(document).ready(function() {
+            // 검색창 클릭 시 자동으로 # 추가
+            $(".myInput").on("click", function() {
+                if (!$(this).val().includes("#")) {
+                    $(this).val("#");
+                }
 
-    // 0.5초 지연 후 div 열기
-    setTimeout(function() {
-      $(".searchKeyordsBox").slideDown(300);
-    }, 100);
-  });
-    
-  // 검색창 키 입력 시 추가 기능 동작
-  $(".myInput").on("keyup", function(e) {
-    var value = $(this).val().toLowerCase();
-    
-    if (e.keyCode === 13) {
-      // Enter 키 누를 시 # 자동 추가
-      if (!value.endsWith("# ")) {
-        $(this).val(value + " #");
-      }
-    $(".searchKeyordsBox").slideDown(300); // div 열기, 애니메이션 적용 가능
-    }
-    
-    // #으로 검색어 분리하여 동시에 검색
-    var searchTerms = value.split("#").filter(term => term.trim() !== "").map(term => term.trim());
-    
-    $("section.bubble").each(function() {
-      var section = $(this);
-      var isSearchable = section.attr("data-searchable") === "CleanThings";
-      
-      if (isSearchable) {
-        var sectionText = section.text().toLowerCase();
-        var hasMatchingTerms = searchTerms.every(term => sectionText.includes(term));
-        
-        if (hasMatchingTerms) {
-          section.show();
-          section.find("table tbody tr").each(function() {
-            var row = $(this);
-            var rowText = row.text().toLowerCase();
-            var hasMatchingTermsInRow = searchTerms.every(term => rowText.includes(term));
-            
-            if (hasMatchingTermsInRow) {
-              row.show();
-            } else {
-              row.hide();
-            }
-          });
-        } else {
-          section.hide();
-        }
-      } else {
-        section.show();
-      }
-    });
-  });
+                // 0.5초 지연 후 div 열기
+                setTimeout(function() {
+                    $(".searchKeyordsBox").slideDown(300);
+                }, 100);
+            });
 
-  // 검색창 텍스트 변경 시, 특정 div 펼치기
-  $(".myInput").on("input", function() {
-    var inputValue = $(this).val().trim();
+            // 검색창 키 입력 시 추가 기능 동작
+            $(".myInput").on("keyup", function(e) {
+                var value = $(this).val().toLowerCase();
 
-    // 텍스트가 있는 경우
-    if (inputValue !== "") {
-      $(".searchKeyordsBox").slideDown(300); // div 펼치기, 애니메이션 적용 가능
-    } else {
-      $(".searchKeyordsBox").slideUp(300); // div 닫기, 애니메이션 적용 가능
-    }
-  });
-  
-  // 검색창 초기화 버튼 클릭 시, div 닫기
-  $(".clearButton").on("click", function() {
-    $(".myInput").val(""); // 검색창 텍스트 초기화
-    $(".searchKeyordsBox").slideUp(300); // div 닫기, 애니메이션 적용 가능
-  });
-    
-  // x 버튼 클릭 시 검색창 내용 지우기
-  $(".clearButton").on("click", function() {
-    $(".myInput").val("");
-    $("section.bubble").show();
-    $("section.bubble table tbody tr").show();
-  });
-});
-    
+                if (e.keyCode === 13) {
+                    // Enter 키 누를 시 # 자동 추가
+                    if (!value.endsWith("# ")) {
+                        $(this).val(value + " #");
+                    }
+                    $(".searchKeyordsBox").slideDown(300); // div 열기, 애니메이션 적용 가능
+                }
+
+                // #으로 검색어 분리하여 동시에 검색
+                var searchTerms = value.split("#").filter(term => term.trim() !== "").map(term => term.trim());
+
+                $("section.bubble").each(function() {
+                    var section = $(this);
+                    var isSearchable = section.attr("data-searchable") === "CleanThings";
+
+                    if (isSearchable) {
+                        var sectionText = section.text().toLowerCase();
+                        var hasMatchingTerms = searchTerms.every(term => sectionText.includes(term));
+
+                        if (hasMatchingTerms) {
+                            section.show();
+                            section.find("table tbody tr").each(function() {
+                                var row = $(this);
+                                var rowText = row.text().toLowerCase();
+                                var hasMatchingTermsInRow = searchTerms.every(term => rowText.includes(term));
+
+                                if (hasMatchingTermsInRow) {
+                                    row.show();
+                                } else {
+                                    row.hide();
+                                }
+                            });
+                        } else {
+                            section.hide();
+                        }
+                    } else {
+                        section.show();
+                    }
+                });
+            });
+
+            // 검색창 텍스트 변경 시, 특정 div 펼치기
+            $(".myInput").on("input", function() {
+                var inputValue = $(this).val().trim();
+
+                // 텍스트가 있는 경우
+                if (inputValue !== "") {
+                    $(".searchKeyordsBox").slideDown(300); // div 펼치기, 애니메이션 적용 가능
+                } else {
+                    $(".searchKeyordsBox").slideUp(300); // div 닫기, 애니메이션 적용 가능
+                }
+            });
+
+            // 검색창 초기화 버튼 클릭 시, div 닫기
+            $(".clearButton").on("click", function() {
+                $(".myInput").val(""); // 검색창 텍스트 초기화
+                $(".searchKeyordsBox").slideUp(300); // div 닫기, 애니메이션 적용 가능
+            });
+
+            // x 버튼 클릭 시 검색창 내용 지우기
+            $(".clearButton").on("click", function() {
+                $(".myInput").val("");
+                $("section.bubble").show();
+                $("section.bubble table tbody tr").show();
+            });
+        });
+
 
         // Call service-worker.js for a progressive web application
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker.js');
         }
+
     </script>
 </body>
 <footer style="margin-bottom:96px;">
@@ -4187,6 +4199,7 @@ $(document).ready(function(){
                     color: #bdbdbd;
                 " target="_blank" rel="noreferrer noopener">One UI Web</a>
     </p>
-    
+
 </footer>
+
 </html>

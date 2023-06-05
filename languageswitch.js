@@ -22,7 +22,7 @@ if (!localStorage.getItem("language")) {
 }
 
 // Add event listeners to language switch buttons
-langEnButton.addEventListener("click", function() {
+langEnButton.addEventListener("click", function () {
     localStorage.setItem("language", "en");
     for (var i = 0; i < contentEn.length; i++) {
         contentEn[i].style.display = "block";
@@ -33,7 +33,7 @@ langEnButton.addEventListener("click", function() {
     langDialog.style.display = "none";
 });
 
-langKoButton.addEventListener("click", function() {
+langKoButton.addEventListener("click", function () {
     localStorage.setItem("language", "ko");
     for (var i = 0; i < contentEn.length; i++) {
         contentEn[i].style.display = "none";
@@ -44,7 +44,7 @@ langKoButton.addEventListener("click", function() {
     langDialog.style.display = "none";
 });
 
-langCloseButton.addEventListener("click", function() {
+langCloseButton.addEventListener("click", function () {
     langDialog.style.display = "none";
 });
 
