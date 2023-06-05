@@ -3995,8 +3995,15 @@
             document.getElementById(tab).classList.add("active");
 
             // Scroll to the top of the page after a delay
-            const scrollDelay = 1; 
+            let scrollDelay = 1;
+            const scrollPosition = window.pageYOffset;
+            if (scrollPosition > 0) {
+               scrollDelay = 100;
+            } else {
+               scrollDelay = 1;
+            }
             setTimeout(() => {
+              // Scroll to the top of the page
               window.scrollTo({
                 top: 0,
                 behavior: "smooth"
