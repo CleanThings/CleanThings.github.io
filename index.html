@@ -100,6 +100,40 @@
             color: #363636;
         }
 
+        ::-webkit-scrollbar {
+            background-color: #f2f2f2;
+            position:absolute;
+            z-index: -1;
+            width: 14px;
+            height: 14px;
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+            position:absolute;
+            z-index: -1;
+            outline: none;
+            border-radius: 10px;
+            border: 4px solid transparent;
+            box-shadow: inset 6px 6px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease-out;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            position:absolute;
+            z-index: -1;
+            border: 4px solid transparent;
+            box-shadow: inset 6px 6px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease-out;
+        }
+
+        ::-webkit-scrollbar-track {
+            position:absolute;
+            z-index: -1;
+            box-shadow: none;
+            background-color: transparent;
+        }
+        
         h1,
         h2,
         h3,
@@ -1395,7 +1429,7 @@
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
             position: fixed;
         }
-
+        
         .popup-body {
             -ms-overflow-style: none;
             /* IE and Edge */
