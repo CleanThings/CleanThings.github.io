@@ -4009,7 +4009,7 @@
                 isScrolling = false;
             }, 100);
         });
-
+        
         tabButtons.forEach((button) => {
             button.addEventListener("click", () => {
                 // Hide all tab contents
@@ -4060,7 +4060,10 @@
                 button.classList.add("active");
             });
         }
-
+        // Scroll to the top of the page on page refresh
+        window.onbeforeunload = function() {
+          window.scrollTo({ top: 0, behavior: 'instant' });
+        };
         //popup
         // Get all the popup links
         const popupLinks = document.querySelectorAll(".popup-link");
