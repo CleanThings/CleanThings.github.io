@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="레이어_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-	 y="0px" viewBox="0 0 46 46" enable-background="new 0 0 46 46" xml:space="preserve">
-<polygon fill="#F2F2F2" points="46,3.5642 42.4358,0 23,19.4357 3.5643,0 0,3.5642 19.4357,23 0,42.4357 3.5642,46 23,26.5642 
-	42.4357,46 46,42.4357 26.5643,22.9999 "/>
+	 y="0px" viewBox="0 0 46 46" style="enable-background:new 0 0 46 46;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#363636;}
+</style>
+<polygon class="st0" points="46,3.6 42.4,0 23,19.4 3.6,0 0,3.6 19.4,23 0,42.4 3.6,46 23,26.6 42.4,46 46,42.4 26.6,23 "/>
 </svg>

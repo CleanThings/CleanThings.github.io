@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="icons/favicon.ico?">
@@ -23,6 +24,7 @@
     <meta name="twitter:description" content="Find IoT devices and sensors that free from any Chinese backdoor or hacking threats. Don't let Chinese government and hacker steal your information from your devices. Do left only the CleanThings in your smart home.">
     <meta name="twitter:image" content="images/CleanThings_Twittercard.png">
     <meta name="twitter:domain" content="https://cleanthings.github.io/">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
     <style>
         /* General styles */
         * {
@@ -251,9 +253,6 @@
             height: 200%;
             opacity: 1;
         }
-
-
-
 
         .menu:hover .dropdown-content {
             display: block;
@@ -1049,10 +1048,11 @@
             border-bottom: 1px solid #e2e2e2;
         }
 
-        /*.table tr:nth-child(odd):not(:first-child) {*/
-        /*    background-color: #ebf3f9;*/
-        /*}*/
-
+        /* 주석 처리된 부분을 제거합니다.
+        .table tr:nth-child(odd):not(:first-child) {
+            background-color: #ebf3f9;
+        }
+        */
 
         .table th {
             display: none;
@@ -1106,7 +1106,6 @@
                 padding: 12px;
             }
         }
-
         .cleanthings-maker-btn {
             font-family: "SamsungSharpSans-Bold", "SamsungOne-bold",
                 "SamsungOneKorean-bold", "SamsungOne-800", sans-serif;
@@ -1146,6 +1145,7 @@
             background-color: #DC9701;
             transform: scale(1.02);
         }
+
         .infectedthings-maker-btn {
             font-family: "SamsungSharpSans-Bold", "SamsungOne-bold",
                 "SamsungOneKorean-bold", "SamsungOne-800", sans-serif;
@@ -1165,24 +1165,91 @@
             background-color: #6e1205;
             transform: scale(1.02);
         }
+        /* Search Finder */
+        
+        .search-container,
+        .myInput{
+            width: 100%;
+        }
+        
+        .form-control{
+            background-color:#fefefe;
+            padding: 12px 24px;
+            border-radius: 24px;
+            border:0px;
+            outline: none;
+            font-family: "SamsungSharpSans-Bold", "SamsungOne-bold",
+                "SamsungOneKorean-bold", "SamsungOne-800", "Noto Sans KR",
+                sans-serif;
+        }
+        
+        .search-container {
+          position: relative;
+          display: inline-block;
+        }
 
+        .myInput {
+          padding-right: 48px;
+            
+        }
+
+        .clearButton {
+          position: absolute;
+          top:10px;
+          right: 12px;
+          border-radius: 24px;
+          border:0px;
+          color: #585858;
+          background-color:#fefefe;
+            transition: width 0.3s ease-out, height 0.3s ease-out,
+                opacity 0.3s ease-out;
+        }
+        .clearButton:hover{
+            transition: all 0.5s ease-out;
+            background-color: rgba(0, 0, 0, 0.1);
+            opacity: 1;
+            transform: scale(1.2);
+        }
+        .clearButton:hover::after {
+            width: 200%;
+            height: 200%;
+            opacity: 1;
+        }
+        .clearButton:active{
+            transition: all 0.1s ease-out;
+            transform: scale(0.8);
+        }
+        .searchKeyords{
+            background-color:#fefefe;
+            padding: 12px 24px;
+            margin:6px;
+            border-radius: 24px;
+            border:0px;
+            outline: none;
+            font-family: "SamsungSharpSans-Bold", "SamsungOne-bold",
+                "SamsungOneKorean-bold", "SamsungOne-800", "Noto Sans KR",
+                sans-serif;
+        }
+        .searchKeyords:hover{
+            
+        }
+        .searchKeyordsBox{
+            padding:18px;
+        }
         /* Style the footer */
         footer {
             padding: 12px;
             color: #363636;
             text-align: center;
         }
-
         footer p {
             margin: 0;
         }
-
         small {
             color: #f2f2f2;
             font-size: 1em;
             line-height: 0px;
         }
-
         .tab {
             position: fixed;
             bottom: 0;
@@ -1194,7 +1261,6 @@
             align-items: center;
             padding: 8px 0;
         }
-
         .tab button {
             display: flex;
             flex-direction: column;
@@ -1574,7 +1640,40 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <div class="search-container">
+                <input class="form-control myInput" type="text" placeholder="#Search">
+                <button class="clearButton" type="button"><img src="icons/close.svg" width="12" height="18" /></button>
+            </div>
+            <div class="searchKeyordsBox">
+                <div>
+                    <h3 style="margin-left:12px;"><span lang="en">Protocols</span><span lang="ko" style="display: none">프로토콜</span></h3>
+                    <button class="searchKeyords zigbeeButton">#Zigbee</button>
+                    <button class="searchKeyords zwaveButton">#Z-Wave</button>
+                    <button class="searchKeyords matterButton">#Matter</button>
+                    <button class="searchKeyords threadButton">#Thread</button>
+                    <button class="searchKeyords wifiButton">#Wi-Fi</button>
+                    <button class="searchKeyords lanButton">#LAN</button>
+                    <button class="searchKeyords RS-485Button">#RS-485</button>
+                </div>
+                <div>
+                    <h3 style="margin-left:12px;"><span lang="en">Devices</span><span lang="ko" style="display: none">디바이스</span></h3>
+                    <button class="searchKeyords hubButton">#Hub</button>
+                    <button class="searchKeyords airDresserButton">#Air Dresser</button>
+                    <button class="searchKeyords airQualityButton">#Air Quality sensor</button>
+                    <button class="searchKeyords airPurifierButton">#Air Purifier</button>
+                    <button class="searchKeyords arrivalButton">#Arrival sensor</button>
+                    <button class="searchKeyords AVButton">#AV</button>
+                    <button class="searchKeyords BESPOKEButton">#BESPOKE</button>
+                    <button class="searchKeyords buttonButton">#Button</button>
+                    <button class="searchKeyords cameraButton">#Camera</button>
+                    <button class="searchKeyords ceilinglightButton">#Ceiling Light</button>
+                    <button class="searchKeyords cooktopButton">#Cooktop</button>
+                    <button class="searchKeyords doorlockButton">#Door lock</button>
+
+                </div>
+                
+            </div>
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>Aeotec</h1>
                 <table class="table">
                     <thead>
@@ -1585,7 +1684,7 @@
                         <th>Certified Dates</th>
                     </thead>
                     <tbody>
-
+                        
                     </tbody>
                 </table>
                 <div class="responsive-bubble">
@@ -1602,7 +1701,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>Britzy</h1>
                 <table class="table">
                     <thead>
@@ -1628,11 +1727,11 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <div class="responsive-bubble">
                     <div class="bubble-textbox" id="bubble-textbox-2column-left">
                         <h1>Cuchen</h1>
-                        <p lang="en">Cuchen is a South Korean company that designs and manufactures clean  Electronic Rice cookers that are works with SmartThings. Also, Their own cloud is located outside of China, ensuring that all data transmitted through their devices is clean and free from any Chinese backdoor or hacking threats.<br>Smart home users can create a smart home that is not only a practical but also clean and safe from any potential risk from China by using the Cuchen products which works with SmartThings.</p>
+                        <p lang="en">Cuchen is a South Korean company that designs and manufactures clean Electronic Rice cookers that are works with SmartThings. Also, Their own cloud is located outside of China, ensuring that all data transmitted through their devices is clean and free from any Chinese backdoor or hacking threats.<br>Smart home users can create a smart home that is not only a practical but also clean and safe from any potential risk from China by using the Cuchen products which works with SmartThings.</p>
                         <p lang="ko" style="display: none">Cuchen은 SmartThings에 호환되는 깨끗한 전기밥솥을 만드는 한국 회사입니다. Cuchen은 유저에게 깨끗한 로컬 스마트 홈을 지을 수 있게 돕습니다. 또한 Cuchen의 클라우드는 중국이 아닌 곳에 있어 기기에서 보내고 받는 모든 데이터가 깨끗하고 중국 백도어 또는 해킹 위협이 없습니다.<br>SmartThings에 연결된 Cuchen 제품을 쓰면 잘 쓸만할 뿐 아니라 중국의 잠재적인 위험으로부터 깨끗하고 안전한 스마트홈을 만들 수 있습니다.
                         </p>
                     </div>
@@ -1649,7 +1748,7 @@
                         <th>Certified Dates</th>
                     </thead>
                     <tbody>
-                       <tr>
+                        <tr>
                             <td>Cuchen TRIPLE</td>
                             <td>Rice Cooker</td>
                             <td>Wi-Fi (Cloud)</td>
@@ -1693,7 +1792,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>dacor</h1>
                 <table class="table">
                     <thead>
@@ -1719,7 +1818,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>FIBARO</h1>
                 <table class="table">
                     <thead>
@@ -1745,7 +1844,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <div class="responsive-bubble">
                     <div class="bubble-textbox" id="bubble-textbox-2column-left">
                         <h1>Easyroll</h1>
@@ -1797,7 +1896,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>ecobee</h1>
                 <table class="table">
                     <thead>
@@ -1823,7 +1922,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>EnerZipper</h1>
                 <table class="table">
                     <thead>
@@ -1849,7 +1948,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>eZEX</h1>
                 <table class="table">
                     <thead>
@@ -1875,7 +1974,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <div class="responsive-bubble">
                     <div class="bubble-textbox" id="bubble-textbox-2column-left">
                         <h1>harman/kardon</h1>
@@ -1927,7 +2026,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>IKEA</h1>
                 <table class="table">
                     <thead>
@@ -1953,7 +2052,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <div class="responsive-bubble">
                     <div class="bubble-textbox" id="bubble-textbox-2column-left">
                         <h1>MAMABA</h1>
@@ -2026,7 +2125,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>Miro</h1>
                 <table class="table">
                     <thead>
@@ -2052,7 +2151,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>Nanoleaf</h1>
                 <table class="table">
                     <thead>
@@ -2078,7 +2177,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>Nest</h1>
                 <table class="table">
                     <thead>
@@ -2091,7 +2190,7 @@
                     <tbody></tbody>
                 </table>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>Philips</h1>
                 <table class="table">
                     <thead>
@@ -2117,7 +2216,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>Ring</h1>
                 <table class="table">
                     <thead>
@@ -2143,7 +2242,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <div class="responsive-bubble">
                     <div class="bubble-textbox" id="bubble-textbox-2column-left">
                         <h1>Samsung</h1>
@@ -2190,6 +2289,13 @@
                             <td>Wi-Fi (Cloud)</td>
                             <td>South Korea</td>
                             <td>03/19/2023</td>
+                        </tr>
+                        <tr>
+                            <td>Samsung Dehumidifier 2023</td>
+                            <td>Dehumidifier</td>
+                            <td>Wi-Fi (Cloud)</td>
+                            <td>South Korea</td>
+                            <td>06/05/2023</td>
                         </tr>
                         <tr>
                             <td>Samsung Family Hub</td>
@@ -2382,7 +2488,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <div class="responsive-bubble">
                     <div class="bubble-textbox" id="bubble-textbox-2column-left">
                         <h1>SiHAS</h1>
@@ -2686,7 +2792,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <div class="responsive-bubble">
                     <div class="bubble-textbox" id="bubble-textbox-2column-left">
                         <h1>SmartThings</h1>
@@ -2834,7 +2940,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <div class="responsive-bubble">
                     <div class="bubble-textbox" id="bubble-textbox-2column-left">
                         <h1>SoluM</h1>
@@ -2886,7 +2992,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>Somfy</h1>
                 <table class="table">
                     <thead>
@@ -2912,7 +3018,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <div class="responsive-bubble">
                     <div class="bubble-textbox" id="bubble-textbox-2column-left">
                         <h1>Power Mawnager</h1>
@@ -3027,7 +3133,7 @@
                     </div>
                 </div>
             </section>
-            <section class="bubble" style="padding-bottom: 24px">
+            <section class="bubble" style="padding-bottom: 24px" data-searchable="CleanThings">
                 <h1>Zigbang</h1>
                 <table class="table">
                     <thead>
@@ -3252,88 +3358,88 @@
                         <img src="images/Infected_Things_badge(white).svg" height="64" alt="InfectedThings has been certified for Aqara's products that have been identified as having threats of backdoor or hacking from China." /><img src="images/Infected_Things_badge(black).svg" height="64" alt="InfectedThings has been certified for Aqara's products that have been identified as having threats of backdoor or hacking from China." />
                     </div>
                 </div>
-                    <table class="table">
-                        <thead>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Protocols</th>
-                            <th>Country</th>
-                            <th>Certified Dates</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Aqara Hub M1S Gen 2</td>
-                                <td>Hub, Smart speaker</td>
-                                <td>Wi-Fi (Cloud), Zigbee</td>
-                                <td>China</td>
-                                <td>03/18/2023</td>
-                            </tr>
-                            <tr>
-                                <td>Aqara Camera Hub G2H Pro</td>
-                                <td>Camera, Hub</td>
-                                <td>Wi-Fi (Cloud), Zigbee</td>
-                                <td>China</td>
-                                <td>03/18/2023</td>
-                            </tr>
-                            <tr>
-                                <td>Aqara Camera Hub G3</td>
-                                <td>Camera, Hub</td>
-                                <td>Wi-Fi (Cloud), Zigbee</td>
-                                <td>China</td>
-                                <td>03/18/2023</td>
-                            </tr>
-                            <tr>
-                                <td>Aqara Hub E1</td>
-                                <td>Hub</td>
-                                <td>Wi-Fi (Cloud), Zigbee</td>
-                                <td>China</td>
-                                <td>03/18/2023</td>
-                            </tr>
-                            <tr>
-                                <td>Aqara Hub M2</td>
-                                <td>Hub</td>
-                                <td>LAN, Wi-Fi (Cloud), Zigbee</td>
-                                <td>China</td>
-                                <td>03/18/2023</td>
-                            </tr>
-                            <tr>
-                                <td>Aqara Hub M1S</td>
-                                <td>Hub, Smart speaker</td>
-                                <td>Wi-Fi (Cloud), Zigbee</td>
-                                <td>China</td>
-                                <td>03/16/2023</td>
-                            </tr>
-                            <tr>
-                                <td>Aqara Camera Hub G2H</td>
-                                <td>Camera, Hub</td>
-                                <td>Wi-Fi (Cloud), Zigbee</td>
-                                <td>China</td>
-                                <td>03/16/2023</td>
-                            </tr>
-                            <tr>
-                                <td>Aqara Hub</td>
-                                <td>Hub</td>
-                                <td>Wi-Fi (Cloud), Zigbee</td>
-                                <td>China</td>
-                                <td>03/16/2023</td>
-                            </tr>
-                            <tr>
-                                <td>Aqara Hub</td>
-                                <td>Hub</td>
-                                <td>Wi-Fi (Cloud), Zigbee</td>
-                                <td>China</td>
-                                <td>03/16/2023</td>
-                            </tr>
-                            <tr>
-                                <td>Aqara Presence sensor FP2</td>
-                                <td>Presence sensor</td>
-                                <td>Wi-Fi (Cloud)</td>
-                                <td>China</td>
-                                <td>03/16/2023</td>
-                            </tr>
+                <table class="table">
+                    <thead>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Protocols</th>
+                        <th>Country</th>
+                        <th>Certified Dates</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aqara Hub M1S Gen 2</td>
+                            <td>Hub, Smart speaker</td>
+                            <td>Wi-Fi (Cloud), Zigbee</td>
+                            <td>China</td>
+                            <td>03/18/2023</td>
+                        </tr>
+                        <tr>
+                            <td>Aqara Camera Hub G2H Pro</td>
+                            <td>Camera, Hub</td>
+                            <td>Wi-Fi (Cloud), Zigbee</td>
+                            <td>China</td>
+                            <td>03/18/2023</td>
+                        </tr>
+                        <tr>
+                            <td>Aqara Camera Hub G3</td>
+                            <td>Camera, Hub</td>
+                            <td>Wi-Fi (Cloud), Zigbee</td>
+                            <td>China</td>
+                            <td>03/18/2023</td>
+                        </tr>
+                        <tr>
+                            <td>Aqara Hub E1</td>
+                            <td>Hub</td>
+                            <td>Wi-Fi (Cloud), Zigbee</td>
+                            <td>China</td>
+                            <td>03/18/2023</td>
+                        </tr>
+                        <tr>
+                            <td>Aqara Hub M2</td>
+                            <td>Hub</td>
+                            <td>LAN, Wi-Fi (Cloud), Zigbee</td>
+                            <td>China</td>
+                            <td>03/18/2023</td>
+                        </tr>
+                        <tr>
+                            <td>Aqara Hub M1S</td>
+                            <td>Hub, Smart speaker</td>
+                            <td>Wi-Fi (Cloud), Zigbee</td>
+                            <td>China</td>
+                            <td>03/16/2023</td>
+                        </tr>
+                        <tr>
+                            <td>Aqara Camera Hub G2H</td>
+                            <td>Camera, Hub</td>
+                            <td>Wi-Fi (Cloud), Zigbee</td>
+                            <td>China</td>
+                            <td>03/16/2023</td>
+                        </tr>
+                        <tr>
+                            <td>Aqara Hub</td>
+                            <td>Hub</td>
+                            <td>Wi-Fi (Cloud), Zigbee</td>
+                            <td>China</td>
+                            <td>03/16/2023</td>
+                        </tr>
+                        <tr>
+                            <td>Aqara Hub</td>
+                            <td>Hub</td>
+                            <td>Wi-Fi (Cloud), Zigbee</td>
+                            <td>China</td>
+                            <td>03/16/2023</td>
+                        </tr>
+                        <tr>
+                            <td>Aqara Presence sensor FP2</td>
+                            <td>Presence sensor</td>
+                            <td>Wi-Fi (Cloud)</td>
+                            <td>China</td>
+                            <td>03/16/2023</td>
+                        </tr>
 
-                        </tbody>
-                    </table>
+                    </tbody>
+                </table>
                 <div class="responsive-bubble">
                     <div class="bubble-textbox" id="bubble-textbox-2column-left">
                         <p style="color:#E70232"><span lang="en">There are more <span class="textlogo">Infected Things</span> from the Aqara <br>with much Chinese backdoors on</span><span lang="ko" style="display: none">중국의 백도어에 감염된 Aqara의 <span class="textlogo">InfectedThings</span>가</span></p>
@@ -3841,6 +3947,296 @@
                 popupTarget.style.display = "none";
             });
         });
+        
+        // Search function
+$(document).ready(function(){
+  // 검색창 클릭 시 자동으로 # 추가
+  $(".myInput").on("click", function() {
+    if (!$(this).val().includes("#")) {
+      $(this).val("#");
+    }
+  });
+
+  // 검색창 키 입력 시 추가 기능 동작
+  $(".myInput").on("keyup", function(e) {
+    var value = $(this).val().toLowerCase();
+    
+    if (e.keyCode === 13) {
+      // Enter 키 누를 시 # 자동 추가
+      if (!value.endsWith("# ")) {
+        $(this).val(value + " #");
+      }
+    }
+    
+    // #으로 검색어 분리하여 동시에 검색
+    var searchTerms = value.split("#").filter(term => term.trim() !== "").map(term => term.trim());
+    
+    $("section.bubble").each(function() {
+      var section = $(this);
+      var isSearchable = section.attr("data-searchable") === "CleanThings";
+      
+      if (isSearchable) {
+        var sectionText = section.text().toLowerCase();
+        var hasMatchingTerms = searchTerms.every(term => sectionText.includes(term));
+        
+        if (hasMatchingTerms) {
+          section.show();
+          section.find("table tbody tr").each(function() {
+            var row = $(this);
+            var rowText = row.text().toLowerCase();
+            var hasMatchingTermsInRow = searchTerms.every(term => rowText.includes(term));
+            
+            if (hasMatchingTermsInRow) {
+              row.show();
+            } else {
+              row.hide();
+            }
+          });
+        } else {
+          section.hide();
+        }
+      } else {
+        section.show();
+      }
+    });
+  });
+
+  // 검색어 추가 기능 버튼 클릭 시 검색창에 검색어 추가
+  $(".zigbeeButton").on("click", function() {
+    var keyword = "Zigbee";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  $(".zwaveButton").on("click", function() {
+    var keyword = "Z-Wave";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  $(".matterButton").on("click", function() {
+    var keyword = "Matter";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  $(".threadButton").on("click", function() {
+    var keyword = "Thread";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  $(".wifiButton").on("click", function() {
+    var keyword = "Wi-Fi";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  $(".lanButton").on("click", function() {
+    var keyword = "LAN";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+    
+  $(".RS-485Button").on("click", function() {
+    var keyword = "RS-485";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  $(".airQualityButton").on("click", function() {
+    var keyword = "Air Quality sensor";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  $(".airDresserButton").on("click", function() {
+    var keyword = "Air Dresser";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+    
+  $(".airPurifierButton").on("click", function() {
+    var keyword = "Air Purifier";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+    
+  $(".arrivalButton").on("click", function() {
+    var keyword = "Arrival sensor";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  $(".AVButton").on("click", function() {
+    var keyword = "AV";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  $(".BESPOKEButton").on("click", function() {
+    var keyword = "BESPOKE";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  $(".buttonButton").on("click", function() {
+    var keyword = "Button";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  $(".cameraButton").on("click", function() {
+    var keyword = "Camera";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  $(".cellingLightButton").on("click", function() {
+    var keyword = "Celling Light";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  $(".cooktopButton").on("click", function() {
+    var keyword = "Cooktop";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+    
+  $(".doorlockButton").on("click", function() {
+    var keyword = "Door lock";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  $(".hubButton").on("click", function() {
+    var keyword = "Hub";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  // x 버튼 클릭 시 검색창 내용 지우기
+  $(".clearButton").on("click", function() {
+    $(".myInput").val("");
+    $("section.bubble").show();
+    $("section.bubble table tbody tr").show();
+  });
+});
     </script>
 </body>
 <footer style="margin-bottom:96px;">
@@ -3924,4 +4320,5 @@
             navigator.serviceWorker.register('/service-worker.js');
         }
     </script>
-</footer></html>
+</footer>
+</html>
