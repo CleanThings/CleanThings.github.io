@@ -1712,10 +1712,12 @@
                     <button class="searchKeyords zigbeeButton">#Zigbee</button>
                     <button class="searchKeyords zwaveButton">#Z-Wave</button>
                     <button class="searchKeyords matterButton">#Matter</button>
+                    <button class="searchKeyords galaxyfindnetworksButton">#Galaxy Find Networks</button>
                     <button class="searchKeyords threadButton">#Thread</button>
                     <button class="searchKeyords wifiButton">#Wi-Fi</button>
                     <button class="searchKeyords lanButton">#LAN</button>
                     <button class="searchKeyords RS-485Button">#RS-485</button>
+                    <button class="searchKeyords RFButton">#RF</button>
                 </div>
                 <div>
                     <h3 style="margin-left:12px;"><span lang="en">Devices</span><span lang="ko" style="display: none">디바이스</span></h3>
@@ -3027,14 +3029,14 @@
                         <tr>
                             <td>Solum SmartTag</td>
                             <td>Traker / Tag</td>
-                            <td>Galaxy Find Network</td>
+                            <td>Galaxy Find Networks</td>
                             <td>South Korea</td>
                             <td>03/16/2023</td>
                         </tr>
                         <tr>
                             <td>Solum SmartTag+</td>
                             <td>Traker / Tag</td>
-                            <td>Galaxy Find Network</td>
+                            <td>Galaxy Find Networks</td>
                             <td>South Korea</td>
                             <td>03/16/2023</td>
                         </tr>
@@ -4138,6 +4140,30 @@ $(document).ready(function(){
     
   $(".RS-485Button").on("click", function() {
     var keyword = "RS-485";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+    
+  $(".galaxyfindnetworksButton").on("click", function() {
+    var keyword = "Galaxy Find Networks";
+    var inputValue = $(".myInput").val().trim();
+    
+    if (inputValue === "") {
+      $(".myInput").val("#" + keyword + " ");
+    } else {
+      $(".myInput").val(inputValue + " #" + keyword + " ");
+    }
+    $(".myInput").trigger("keyup");
+  });
+
+  $(".RFButton").on("click", function() {
+    var keyword = "RF";
     var inputValue = $(".myInput").val().trim();
     
     if (inputValue === "") {
