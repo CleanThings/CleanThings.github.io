@@ -3983,6 +3983,21 @@
         const tabButtons = document.querySelectorAll(".tabbutton");
         const tabContents = document.querySelectorAll(".tabcontent");
 
+        let isScrolling = false;
+
+        window.addEventListener("scroll", () => {
+          // Check if scrolling is in progress
+          isScrolling = true;
+
+          // Clear the timeout to prevent multiple executions
+          clearTimeout(scrollTimeout);
+
+          // Set a timeout to detect when scrolling stops
+          const scrollTimeout = setTimeout(() => {
+            isScrolling = false;
+          }, 100);
+        });
+
         tabButtons.forEach((button) => {
           button.addEventListener("click", () => {
             // Hide all tab contents
@@ -3995,13 +4010,8 @@
             document.getElementById(tab).classList.add("active");
 
             // Scroll to the top of the page after a delay
-            let scrollDelay = 1;
-            const scrollPosition = window.pageYOffset;
-            if (scrollPosition > 0) {
-               scrollDelay = 100;
-            } else {
-               scrollDelay = 1;
-            }
+            const scrollDelay = isScrolling || window.innerHeight + window.pageYOffset >= document.body.offsetHeight ? 200 : 1;
+
             setTimeout(() => {
               // Scroll to the top of the page
               window.scrollTo({
