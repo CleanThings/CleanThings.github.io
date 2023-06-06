@@ -1092,74 +1092,78 @@
                 table-layout: fixed;
                 color: #363636;
                 overflow: hidden;
+                
             }
 
             .table thead:first-child {
                 width: 100%;
                 color: #363636;
+                margin-top: 24px;
+
             }
 
             .table tr {
-                border-top: 1px solid #e2e2e2;
-                border-bottom: 1px solid #e2e2e2;
             }
-
-            /* 주석 처리된 부분을 제거합니다.
-        .table tr:nth-child(odd):not(:first-child) {
-            background-color: #ebf3f9;
-        }
-        */
 
             .table th {
                 display: none;
             }
 
-            .table td:first-child {
-                border-bottom: 1px solid #e2e2e2;
-                font-weight: bold;
-            }
-
             .table td {
                 display: block;
                 background-color: #f2f2f2;
+
             }
 
-            .table thead:first-child {
-                margin-top: 24px;
+            .table td:first-child {
+                font-weight: bold;
             }
 
             .table td:last-child {
                 margin-bottom: 48px;
             }
 
+
             .table th,
             .table td {
                 text-align: left;
-            }
-
-            .table tr {
-                border-color: #e2e2e2;
-            }
-
-            .table th,
-            .table td {
                 padding: 12px 6px;
+
             }
+
 
             /* 모바일보다 클 때 */
             @media screen and (min-width: 721px) {
+                
+                .table{
+                    border-radius: 12px;
+                }
+                
                 .table td:before {
                     display: none;
+                    
                 }
 
+                .table td:first-child {
+                    border-radius: 12px 0px 0px 12px;
+                }
+                .table td:last-child {
+                    border-radius: 0px 12px 12px 12px;
+                }
+                .table tr{
+                    border-bottom:4px solid #fefefe;   
+                }
+                
                 .table td a {
                     text-decoration: none;
+                    
                 }
-
+                
                 .table th,
                 .table td {
                     display: table-cell;
                     padding: 12px;
+                    
                 }
             }
 
