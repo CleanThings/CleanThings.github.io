@@ -433,7 +433,7 @@
       $(".myInput").trigger("keyup");
   });
 
-  $(".doorWindowSensorButton").on("click", function () {
+  $(".doorAndWindowSensorButton").on("click", function () {
       var keyword = "Door and Window sensor";
       var inputValue = $(".myInput").val().trim();
 
