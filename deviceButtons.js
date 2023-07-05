@@ -98,7 +98,7 @@
   });
 
   $(".galaxyfindnetworksButton").on("click", function () {
-      var keyword = "Galaxy Find Networks";
+      var keyword = "Galaxy Find Network";
       var inputValue = $(".myInput").val().trim();
 
       if (inputValue === "") {
