@@ -108,16 +108,16 @@
 		{
 			"doubleSided":true,
 			"emissiveFactor":[
-				0.04185476899147034,
-				0.09187276661396027,
-				0.29128116369247437
+				0.773832380771637,
+				0.8394993543624878,
+				0.9699080586433411
 			],
 			"extensions":{
 				"KHR_materials_specular":{
 					"specularColorFactor":[
-						2.371357614441398,
-						2.371357614441398,
-						2.371357614441398
+						2.3713576144413984,
+						2.3713576144413984,
+						2.3713576144413984
 					]
 				},
 				"KHR_materials_ior":{
@@ -126,58 +126,66 @@
 			},
 			"name":"\ub9e4\ud14c\ub9ac\uc5bc.002",
 			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					0.800000011920929,
-					0.800000011920929,
-					0.800000011920929,
-					1
-				],
 				"metallicFactor":0.2568493187427521,
 				"roughnessFactor":0.5034246444702148
 			}
 		},
 		{
 			"doubleSided":true,
-			"name":"White Plastic.001",
-			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					0.800000011920929,
-					0.800000011920929,
-					0.800000011920929,
-					1
-				],
-				"metallicFactor":0
-			}
-		},
-		{
-			"doubleSided":true,
-			"name":"SILVER.003",
-			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					0.800000011920929,
-					0.800000011920929,
-					0.800000011920929,
-					1
-				],
-				"metallicFactor":0,
-				"roughnessFactor":0.4000000059604645
-			}
-		},
-		{
-			"doubleSided":true,
-			"name":"grayplastic.002",
-			"pbrMetallicRoughness":{
-				"metallicFactor":0
-			}
-		},
-		{
-			"doubleSided":true,
+			"emissiveFactor":[
+				0.800000011920929,
+				0.800000011920929,
+				0.800000011920929
+			],
 			"name":"White Plastic.005",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
 					0.800000011920929,
 					0.800000011920929,
 					0.800000011920929,
+					1
+				],
+				"metallicFactor":0
+			}
+		},
+		{
+			"doubleSided":true,
+			"emissiveFactor":[
+				0.20000004768371582,
+				0.20000004768371582,
+				0.20000004768371582
+			],
+			"extensions":{
+				"KHR_materials_specular":{
+					"specularColorFactor":[
+						2.3713576144413984,
+						2.3713576144413984,
+						2.3713576144413984
+					]
+				},
+				"KHR_materials_ior":{
+					"ior":1.4500000476837158
+				}
+			},
+			"name":"SILVER.003",
+			"pbrMetallicRoughness":{
+				"baseColorFactor":[
+					0.5,
+					0.5,
+					0.5,
+					1
+				],
+				"roughnessFactor":0.10866141319274902
+			}
+		},
+		{
+			"doubleSided":true,
+			"name":"grayplastic.002",
+			"pbrMetallicRoughness":{
+				"baseColorFactor":[
+					0.22378751635551453,
+					0.257728636264801,
+					0.29999998211860657,
 					1
 				],
 				"metallicFactor":0
@@ -251,7 +259,7 @@
 						"TEXCOORD_0":18
 					},
 					"indices":19,
-					"material":4
+					"material":1
 				}
 			]
 		}
