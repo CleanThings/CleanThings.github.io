@@ -107,28 +107,8 @@
 	"materials":[
 		{
 			"doubleSided":true,
-			"emissiveFactor":[
-				0.773832380771637,
-				0.8394993543624878,
-				0.9699080586433411
-			],
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularColorFactor":[
-						2.3713576144413984,
-						2.3713576144413984,
-						2.3713576144413984
-					]
-				},
-				"KHR_materials_ior":{
-					"ior":1.4500000476837158
-				}
-			},
 			"name":"\ub9e4\ud14c\ub9ac\uc5bc.002",
-			"pbrMetallicRoughness":{
-				"metallicFactor":0.2568493187427521,
-				"roughnessFactor":0.5034246444702148
-			}
+			"pbrMetallicRoughness":{}
 		},
 		{
 			"doubleSided":true,
@@ -151,9 +131,9 @@
 		{
 			"doubleSided":true,
 			"emissiveFactor":[
-				0.20000004768371582,
-				0.20000004768371582,
-				0.20000004768371582
+				1,
+				1,
+				1
 			],
 			"extensions":{
 				"KHR_materials_specular":{
@@ -180,6 +160,20 @@
 		},
 		{
 			"doubleSided":true,
+			"emissiveFactor":[
+				0.3616342544555664,
+				0.41083237528800964,
+				0.49693143367767334
+			],
+			"extensions":{
+				"KHR_materials_specular":{
+					"specularColorFactor":[
+						0,
+						0,
+						0
+					]
+				}
+			},
 			"name":"grayplastic.002",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[

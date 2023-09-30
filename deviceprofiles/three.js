@@ -17,17 +17,17 @@ camera.position.set( 0, 2, 4);
 const loader = new GLTFLoader();
 loader.load('SmartThingsMotionSensor.glb', function(gltf) {scene.add(gltf.scene);})
 
-const light1 = new THREE.PointLight( 0xffffff, 40, 100 );
-light1.position.set( 2, 3, 5 );
+const light = new THREE.AmbientLight( 0x404040 ); // soft white light
+scene.add( light );
+
+const light1 = new THREE.PointLight( 0xffffff, 50, 100 );
+light1.position.set( 0, 8, 0 );
 scene.add( light1 );
 
-const light2 = new THREE.PointLight( 0xffffff, 20, 100 );
-light2.position.set( -2, 0, 2 );
+//bottom light
+const light2 = new THREE.PointLight( 0xffffff, 60, 100 );
+light2.position.set( 0, -8, 0 );
 scene.add(light2);
-
-const light3 = new THREE.PointLight( 0xffffff, 2, 100 );
-light3.position.set( 0, 3, -5 );
-scene.add(light3);
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
 scene.add(ambientLight);
