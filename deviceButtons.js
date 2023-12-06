@@ -349,6 +349,20 @@
       $(".myInput").trigger("keyup");
   });
 
+  $(".musieSystemButton").on("click", function () {
+      var keyword = "Music System";
+      var inputValue = $(".myInput").val().trim();
+
+      if (inputValue === "") {
+          $(".myInput").val("#" + keyword + " ");
+      } else if (inputValue === "#") {
+          $(".myInput").val(inputValue + keyword + " ");
+      } else {
+          $(".myInput").val(inputValue + " #" + keyword + " ");
+      }
+      $(".myInput").trigger("keyup");
+  });
+
   $(".ovenButton").on("click", function () {
       var keyword = "Oven";
       var inputValue = $(".myInput").val().trim();
